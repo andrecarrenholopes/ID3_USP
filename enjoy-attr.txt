@@ -1,0 +1,8 @@
+Sky Sunny Rain
+AirTemp Warm Cold
+Humadity Normal High
+Wind Strong Weak
+Water Warm Cool
+Forecast Same Change
+
+EnjoySport Yes No
