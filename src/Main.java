@@ -530,12 +530,12 @@ public class Main {
 	private static List<Exp> cleanMissingValues(List<Exp> examples) {
 		int count = 0;
 		System.out.println("Quantidade de exemplos: " + examples.size());
-		for (int i = 0; i < examples.size(); i++){
-			String [] data = examples.get(i).getData();
+		Iterator<Exp> itr = examples.iterator();
+		while(itr.hasNext()){
+			String [] data = itr.next().getData();
 			for(int j = 0; j < data.length; j++){
 				if(data[j].equals("?")){
-					examples.remove(i);
-					count++;
+					itr.remove();
 					break;
 				}
 			}
