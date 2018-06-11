@@ -67,15 +67,19 @@ public class Predictor {
 					// find the value of attribute in example
 					String v_exp = exp.get(idx);
 					
-					// convert both values from string to double
-					Double thr = Double.valueOf(attr.split("<=")[1]); // e.g. 1.5
-					Double v_exp_double = Double.valueOf(v_exp);
-
-					if (v.equals("true")) {
-						match = v_exp_double <= thr ? true:false;
-						
-					}else if (v.equals("false")){
-						match = thr < v_exp_double ? true:false;
+					if(attr.contains("<=")){
+						// convert both values from string to double
+						Double thr = Double.valueOf(attr.split("<=")[1]); // e.g. 1.5
+						Double v_exp_double = Double.valueOf(v_exp);
+	
+						if (v.equals("true")) {
+							match = v_exp_double <= thr ? true:false;
+							
+						}else if (v.equals("false")){
+							match = thr < v_exp_double ? true:false;
+						}
+					}else {
+						match = v.equals(exp.getData()[idx]);
 					}
 					
 					if (!match){

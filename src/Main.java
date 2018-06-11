@@ -233,6 +233,69 @@ public class Main {
 				System.out.println("Pruned Rule Set:");
 				printRules(pruned_rules);
 
+			}else if((name_dataset.equals("adult"))) {
+				// 6. PRUN THE TREE
+
+				// 6-0. show the performance of the un-pruned tree on the validation set
+				predictor = new Predictor (tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+				//System.out.printf("The accuracy over validation data is %.1f%%%n" , predictor.getAccuracy());
+
+				// The accuracy of un-pruned tree over validation dataset 
+				double acc_val = predictor.getAccuracy();
+
+
+
+				/*
+				// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
+				// set the pruning approach to reduced-error pruning
+				tree.setPruneApproach("reduced-error pruning");
+				Tree tree_pruned = tree.prune(examples_train, examples_val, null, attrs, classes, name_dataset, attrs_orig, acc_val);
+
+				predictor = new Predictor (tree_pruned, examples_test, attrs, classes, name_dataset, attrs_orig);
+				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
+
+				predictor = new Predictor (tree_pruned, examples_train, attrs, classes, name_dataset, attrs_orig);
+				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
+
+				predictor = new Predictor (tree_pruned, examples_val, attrs, classes, name_dataset, attrs_orig);
+				System.out.printf("The accuracy of pruned tree over validation set is %.1f%%%n" , predictor.getAccuracy());
+
+				System.out.println("Pruned Tree:");
+				tree_pruned.display(spaces);
+				 */
+
+
+
+				// 6-2. RULE POST PRUNING
+				// set the pruning approach to rule post-pruning
+				tree.setPruneApproach("rule post-pruning");
+
+				tree.resetRules();
+				tree.deriveRules();
+				ArrayList<Rule> rules = tree.getRules();
+				// initialize rules' scores to accuracy over validation set
+				for (Rule r: rules){
+					//r.assignScore(examples_val, attrs_orig);
+					r.setScore(acc_val);
+					//r.setScore(acc_val + Math.random());
+				}
+
+				// Compute the majority of class targets for the default target value
+				String target_default = getMajorityAdult(examples_train);
+				//tree.displayRules();
+				ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes, name_dataset, attrs_orig, acc_val, target_default, noise);
+
+				predictor = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
+				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
+
+				predictor = new Predictor(pruned_rules, examples_train, attrs_orig, target_default);
+				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
+
+				predictor = new Predictor(pruned_rules, examples_val, attrs_orig, target_default);
+				System.out.printf("The accuracy of pruned tree over validation data is %.1f%%%n" , predictor.getAccuracy());
+
+				System.out.println("Pruned Rule Set:");
+				printRules(pruned_rules);
 			}
 
 		}
@@ -409,7 +472,7 @@ public class Main {
 			Map.Entry pair = (Map.Entry)it.next(); 
 			ArrayList<String> s = (ArrayList) pair.getValue();
 			if(s.get(0).equals("continuous")){
-				attr_vals.remove(pair.getKey(), pair.getValue());
+				attr_vals.remove(pair.getKey());//, pair.getValue());
 			}
 			it.remove(); // avoids a ConcurrentModificationException
 		}
@@ -607,6 +670,36 @@ public class Main {
 		return t;
 	}
 
+	private static String getMajorityAdult(List<Exp> examples) {
+
+		int[] counter = new int[classes.length];
+
+		for (Exp exp: examples){
+			switch (exp.getTarget()) {
+			case ">50K":
+				counter[0]++;
+				break;
+			case "<=50K":
+				counter[1]++;
+				break;
+			default:
+				break;
+			}
+		}
+
+		// find the max
+		int max = Integer.MIN_VALUE, idx = 0;
+		for (int i = 0; i < counter.length - 1; i++){
+			if ( counter[i] >= max){
+				max = counter[i];
+				idx = i;
+			}
+		}
+
+		String t = replaceAdult(idx);
+
+		return t;
+	}
 	// auxiliary functions
 
 	private static String replace(int i) {
