@@ -208,6 +208,31 @@ public class Predictor {
 			target_tree = traverse(exp, next, target_tree);
 
 			
+		}else if (this.getdatasetName().equals("adult")){
+			
+			// find the index of attr in global Attributes.
+			int idx = Arrays.asList(this.getOrigAttributes()).indexOf(root.split("<=")[0]);
+			
+			// find the value of attribute in example
+			String v = exp.get(idx);
+			
+			// Go deeper to in tree the next level via branch v
+			// for A: sepal-length<=6.9 return 6.9 as thr
+			Tree next;
+			if(root.contains("<=")){
+				Double thr = Double.valueOf(root.split("<=")[1]);
+				if (Double.valueOf(exp.get(idx)) <= thr){
+					next = tree.getChildren().get("true");
+				}else{
+					next = tree.getChildren().get("false");
+				}
+			}else {
+				next = tree.getChildren().get(v);
+			}
+			
+			target_tree = traverse(exp, next, target_tree);
+
+			
 		}
 		
 		return target_tree;

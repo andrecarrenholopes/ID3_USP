@@ -154,10 +154,15 @@ public class Main {
 		tree.displayRules();
 
 		// 5. CLASSIFIER/ PREDICTOR (test over test data)
+		System.out.println("");
+		System.out.println("Limpando missing values de teste...");
+		examples_test = cleanMissingValues(examples_test);
 		System.out.printf("-------------%nEvaluation:");
 		Predictor predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
 		System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
 
+		System.out.println("Limpando missing values de train data");
+		examples_train = cleanMissingValues(examples_train);
 		predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
 		System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
 
@@ -413,6 +418,7 @@ public class Main {
 
 		//limpar missing values
 		examples = cleanMissingValues(examples);
+		
 		// DISCRETIZE THE CONTINUOUS ATTRIBUTES
 
 		System.out.println("começando a ordenar");
@@ -627,7 +633,7 @@ public class Main {
 
 		return output;
 	}
-	
+
 	private static String replaceAdult(int i) {
 		// 0 is replaced with Yes or Iris-setosa
 		// 1 is replaced with No or Iris-versicolor
@@ -791,7 +797,7 @@ public class Main {
 			temp_c[i] = String.valueOf(d);
 			i++;
 		}
-		
+
 		int[] Target_attributes = {0,1}; // >50K <=50K
 		double entropy_S = cal_entropyAdult(S, Target_attributes);
 
@@ -807,13 +813,13 @@ public class Main {
 		for (String attr: temp_c){
 
 			double sigma = 0.0;
-			
+
 			//Iterator itr = temp_c.iterator();
 			//while (itr.hasNext()){
 			i = 0;
 			String[] itr = {"true", "false"};
 			while(i<itr.length) {
-				
+
 				// 1. count the number of examples whose attribute "attr" has the value v
 				String v = itr[i];
 				List<Exp> S_v = derive_examplesAdult(S,attrs[idx]+"<="+ attr, v);
@@ -833,7 +839,7 @@ public class Main {
 				}
 				// 4. calculate SIGMA [(|S_v| / |S|) * entropy(Sv)]
 				sigma+= - ratio * entropy_Sv;
-				
+
 				i++;
 			}
 
@@ -846,11 +852,11 @@ public class Main {
 				best_attribute = attr;
 			}
 		}
-			Set<Double> best_threshold = new HashSet<Double>();
-			best_threshold.add(Double.valueOf(best_attribute));
+		Set<Double> best_threshold = new HashSet<Double>();
+		best_threshold.add(Double.valueOf(best_attribute));
 
-		
-		
+
+
 		return best_threshold;
 	}
 
@@ -886,48 +892,101 @@ public class Main {
 
 		return sum;
 	}
-	
+
 	private static List<Exp> derive_examplesAdult(List<Exp> S, String A, String v) {
 		// count the number of examples whose attribute "attr" has the value v
 		// v is implied in each iteration using iterator
 
 		List<Exp> tmp = new ArrayList<Exp>();
-		
-			// find the index of attr in global Attributes.
-			
-			int idx;
-			if (A.contains("<=")){//se for continuo
-				idx = Arrays.asList(attrs_orig).indexOf(A.split("<=")[0]);
-			
+
+		// find the index of attr in global Attributes.
+
+		int idx;
+		if (A.contains("<=")){//se for continuo
+			idx = Arrays.asList(attrs_orig).indexOf(A.split("<=")[0]);
+
 			// for A: sepal-length<=6.9 return 6.9 as thr	
-				Double thr = Double.valueOf(A.split("<=")[1]);
-	
-				//int comparable = v.equals("true")?
-	
-				for (Exp exp: S){
-					if (v.equals("true")){
-						if (Double.valueOf(exp.get(idx)) <= thr){
-							tmp.add(exp);
-						}
-					}else{
-						if (Double.valueOf(exp.get(idx)) > thr){
-							tmp.add(exp);
-						}
+			Double thr = Double.valueOf(A.split("<=")[1]);
+
+			//int comparable = v.equals("true")?
+
+			for (Exp exp: S){
+				if (v.equals("true")){
+					if (Double.valueOf(exp.get(idx)) <= thr){
+						tmp.add(exp);
 					}
-				}
-			}else { //se for discreto
-				idx = Arrays.asList(attrs_orig).indexOf(A);
-			
-				for (Exp exp: S){
-					if (v.equals(String.valueOf(Double.valueOf(exp.get(idx))))){
+				}else{
+					if (Double.valueOf(exp.get(idx)) > thr){
 						tmp.add(exp);
 					}
 				}
 			}
-		
+		}else { //se for discreto
+			idx = Arrays.asList(attrs_orig).indexOf(A);
+
+			for (Exp exp: S){
+				if (v.equals(String.valueOf(Double.valueOf(exp.get(idx))))){
+					tmp.add(exp);
+				}
+			}
+		}
+
 
 		return tmp;
 	}
 
+	public static void random(List<Exp> Examples, int fold) {
+		int r = fold;
+		Integer[] arr = new Integer[Examples.size()];
+		List<List<Exp>> train = new ArrayList<List<Exp>>(r);
+		List<List<Exp>> val = new ArrayList<List<Exp>>(r);
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i;
+		}
+		Collections.shuffle(Arrays.asList(arr));
+
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Examples.size());
+		System.out.println(arr[32]);
+
+		int qtd = Examples.size()/r;
+
+		List<Exp> temptrain = new ArrayList<Exp>();
+		List<Exp> tempval = new ArrayList<Exp>();
+
+		int linhaTrain =0;
+		int linhaVal =0;
+
+		for(int linha =0; linha<=r;linha++) {
+
+			int fimFold = (linha+1)*qtd;
+			int inicioFold = fimFold-qtd;
+
+			for(int preenche = 0; preenche <=Examples.size()-1; preenche++) {
+				if(preenche < fimFold && preenche >= inicioFold) {
+					temptrain.add(linhaTrain,Examples.get(arr[preenche]));
+					linhaTrain++;
+				}
+				else {
+					tempval.add(linhaVal,Examples.get(arr[preenche]));
+					linhaVal++;
+				}
+				System.out.println("preenche:"+preenche+" linhaTrain:"+linhaTrain+" linhaVal:"+linhaVal);
+			}
+			train.add(linha,temptrain);
+			val.add(linha,tempval);
+			linhaTrain=0;
+			linhaVal=0;
+		}
+
+		for(int linha =0; linha<=r;linha++) {
+			System.out.println(linha);
+			for(int preenche = 0; preenche <=Examples.size(); preenche++) {
+				System.out.println(Arrays.asList(val.get(linha).get(preenche)));
+			}
+		}
+
+	}
 
 }
