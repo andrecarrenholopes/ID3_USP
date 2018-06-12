@@ -309,8 +309,14 @@ public class Tree {
 			for (int i = 0; i < counter.length; i++) {
 
 				for (Exp exp : examples_train) {
-					if (exp.getTarget().equals(replace(i))) {
-						counter[i]++;
+					if(name_dataset.equals("adult")) {
+						if (exp.getTarget().equals(replaceAdult(i))) { 
+							counter[i]++;
+						}
+					}else {
+						if (exp.getTarget().equals(replace(i))) { 
+							counter[i]++;
+						}
 					}
 				}
 			}
@@ -323,8 +329,14 @@ public class Tree {
 					max = i;
 				}
 			}
-
-			t.setRoot(replace(max));
+			
+			if(name_dataset.equals("adult")) {
+				t.setRoot(replaceAdult(max));
+			} else {
+				t.setRoot(replace(max));
+			}
+			
+			
 			t.setChildren(null);
 
 			// form the mirror-tree
@@ -736,6 +748,27 @@ public class Tree {
 		return output;
 	}
 
+	private String replaceAdult(int i) {
+		// 0 is replaced with >50K
+		// 1 is replaced with <=50K
+
+		String output = "noun";
+
+		switch (i) {
+		case 0:
+			output = ">50K";
+			break;
+		case 1:
+			output = "<=50K";
+			break;
+		default:
+			output = "noun";
+			break;
+		}
+
+		return output;
+	}
+	
 	public void assignParents(Tree p) {
 		// termination condition
 		if (this.getChildren() == null) {

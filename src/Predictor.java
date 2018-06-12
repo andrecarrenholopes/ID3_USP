@@ -79,7 +79,7 @@ public class Predictor {
 							match = thr < v_exp_double ? true:false;
 						}
 					}else {
-						match = v.equals(exp.getData()[idx]);
+						match = v.equals(v_exp);
 					}
 					
 					if (!match){

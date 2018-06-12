@@ -128,8 +128,16 @@ public class Main {
 			Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
 			examples_train = train_val.getfirst();
 			examples_val = train_val.getsecond();
-
+			System.out.println("Limpando missing values de train data");
+			examples_train = cleanMissingValues(examples_train);
+			if(examples_train.size() >0) {
+				System.out.println("Limpando missing values de validação de train data para poda");
+				examples_val = cleanMissingValues(examples_val);
+			}
 			examples_test = readExamples(txt_input_test);
+			System.out.println("");
+			System.out.println("Limpando missing values de teste...");
+			examples_test = cleanMissingValues(examples_test);
 			attrs_orig = attrs.clone();
 
 			// pre-process iris dataset to discretize the attributes
@@ -154,15 +162,12 @@ public class Main {
 		tree.displayRules();
 
 		// 5. CLASSIFIER/ PREDICTOR (test over test data)
-		System.out.println("");
-		System.out.println("Limpando missing values de teste...");
-		examples_test = cleanMissingValues(examples_test);
+		
 		System.out.printf("-------------%nEvaluation:");
 		Predictor predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
 		System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
 
-		System.out.println("Limpando missing values de train data");
-		examples_train = cleanMissingValues(examples_train);
+		
 		predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
 		System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
 
@@ -245,7 +250,7 @@ public class Main {
 
 
 
-				/*
+				
 				// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
 				// set the pruning approach to reduced-error pruning
 				tree.setPruneApproach("reduced-error pruning");
@@ -262,7 +267,7 @@ public class Main {
 
 				System.out.println("Pruned Tree:");
 				tree_pruned.display(spaces);
-				 */
+				 
 
 
 
