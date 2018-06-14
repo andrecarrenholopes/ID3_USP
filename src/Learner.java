@@ -2,14 +2,6 @@ import java.util.*;
 
 /**
  * 
- * @author Maryam Najafi, mnajafi2012@my.fit.edu
- *
- * Feb 6, 2017
- * 
- * Course:  CSE 5693, Fall 2017
- * Project: HW2, Decision Tree_ID3
- * 
- * 
  * Learner receives an array list of training examples and trains a decision tree given ID3 algorithm.
  * Learner returns a Tree.
  */

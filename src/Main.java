@@ -2,16 +2,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 import java.util.*;
-/**
- * 
- * @author Maryam Najafi, mnajafi2012@my.fit.edu
- *
- * Feb 22, 2017
- * Course:  CSE 5693, Fall 2017
- * Project: HW2, Decision Tree_ID3
- */
+
+
 public class Main {
 
 
@@ -24,7 +18,14 @@ public class Main {
 	private static double ratio = 1; // e.g. 90% goes as training, the rest as val. set
 	private static int max_noise_limit = 20; // 20% given by the problem
 	static double seed = .0;
+	static int fold_size = 10;
 
+	/**
+	 * @param args
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws CloneNotSupportedException
+	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, CloneNotSupportedException {
 
 		// variable definitions
@@ -89,305 +90,234 @@ public class Main {
 
 
 			System.out.println();
-		}else if (name_dataset.equalsIgnoreCase("bool")){
-			System.out.printf("Boolean Data Set: %n-------------%n");
-			txt_attrs = System.getProperty("user.dir").concat("/bool-attr.txt");
-			txt_input_train = System.getProperty("user.dir").concat("/bool-train.txt");
-			txt_input_test = System.getProperty("user.dir").concat("/bool-test.txt");
-
-			// a) read from input text file for the tennis dataset
-			setAttrs_size(8);
-			readAttributes(txt_attrs);
-			examples_train = readExamples(txt_input_train);
-			examples_test = readExamples(txt_input_test);
-
-		}else if (name_dataset.equalsIgnoreCase("enjoy")){
-			System.out.printf("Enjoy (problem 3.4) Data Set: %n-------------%n");
-			txt_attrs = System.getProperty("user.dir").concat("/enjoy-attr.txt");
-			txt_input_train = System.getProperty("user.dir").concat("/enjoy-train.txt");
-			//txt_input_test = System.getProperty("user.dir").concat("/enjoy-test.txt");
-			txt_input_test = System.getProperty("user.dir").concat("/enjoy-train.txt");
-
-			// a) read from input text file for the tennis dataset
-			setAttrs_size(6);
-			readAttributes(txt_attrs);
-			examples_train = readExamples(txt_input_train);
-			examples_test = readExamples(txt_input_test);
 		}else if (name_dataset.equalsIgnoreCase("adult")){
 			System.out.printf("Adult Data Set: %n-------------%n");
 			txt_attrs = System.getProperty("user.dir").concat("/adult-attr.txt");
 			txt_input_train = System.getProperty("user.dir").concat("/adult-train.txt");
 			txt_input_test = System.getProperty("user.dir").concat("/adult-test.txt");
 
-			// b) read from input text file for the iris dataset
+			// b) read from input text file for the adult dataset
 			setAttrs_size(14);
 			readAttributes(txt_attrs);
 			examples_train = readExamples(txt_input_train);
 
 			// split training data into training and validation sets
-			Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
-			examples_train = train_val.getfirst();
-			examples_val = train_val.getsecond();
+			//Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
+			//examples_train = train_val.getfirst();
+			//examples_val = train_val.getsecond();
 			System.out.println("Limpando missing values de train data");
 			examples_train = cleanMissingValues(examples_train);
-			if(examples_train.size() >0) {
-				System.out.println("Limpando missing values de validação de train data para poda");
-				examples_val = cleanMissingValues(examples_val);
-			}
+			//if(examples_train.size() >0) {
+				//System.out.println("Limpando missing values de validação de train data para poda");
+				//examples_val = cleanMissingValues(examples_val);
+			//}
 			examples_test = readExamples(txt_input_test);
-			System.out.println("");
 			System.out.println("Limpando missing values de teste...");
 			examples_test = cleanMissingValues(examples_test);
 			attrs_orig = attrs.clone();
 
-			// pre-process iris dataset to discretize the attributes
-			preprocess_Adult(examples_train);
-
-
 			System.out.println();
 		}
 
-		// 2. LEARNER
-		//printExamples(examples_train);
-		Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig);
-		tree = learner.getTree();
-
-
-		// 3. PRINT the result tree
-		tree.display(spaces);
-
-
-		// 4. PRINT THE RULES
-		System.out.printf("-------------%nRule Set:%n");
-		tree.displayRules();
-
-		// 5. CLASSIFIER/ PREDICTOR (test over test data)
-		
-		System.out.printf("-------------%nEvaluation:");
-		Predictor predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
-
-		
-		predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
-
-
-		if (do_prune && !noise){
-			if (name_dataset.equals("iris")){
-
-				// 6. PRUN THE TREE
-
-				// 6-0. show the performance of the un-pruned tree on the validation set
-				predictor = new Predictor (tree, examples_val, attrs, classes, name_dataset, attrs_orig);
-				//System.out.printf("The accuracy over validation data is %.1f%%%n" , predictor.getAccuracy());
-
-				// The accuracy of un-pruned tree over validation dataset 
-				double acc_val = predictor.getAccuracy();
-
-
-
-				/*
-				// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
-				// set the pruning approach to reduced-error pruning
-				tree.setPruneApproach("reduced-error pruning");
-				Tree tree_pruned = tree.prune(examples_train, examples_val, null, attrs, classes, name_dataset, attrs_orig, acc_val);
-
-				predictor = new Predictor (tree_pruned, examples_test, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor (tree_pruned, examples_train, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor (tree_pruned, examples_val, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("The accuracy of pruned tree over validation set is %.1f%%%n" , predictor.getAccuracy());
-
-				System.out.println("Pruned Tree:");
-				tree_pruned.display(spaces);
-				 */
-
-
-
-				// 6-2. RULE POST PRUNING
-				// set the pruning approach to rule post-pruning
-				tree.setPruneApproach("rule post-pruning");
-
-				tree.resetRules();
-				tree.deriveRules();
-				ArrayList<Rule> rules = tree.getRules();
-				// initialize rules' scores to accuracy over validation set
-				for (Rule r: rules){
-					//r.assignScore(examples_val, attrs_orig);
-					r.setScore(acc_val);
-					//r.setScore(acc_val + Math.random());
-				}
-
-				// Compute the majority of class targets for the default target value
-				String target_default = getMajority(examples_train);
-				//tree.displayRules();
-				ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes, name_dataset, attrs_orig, acc_val, target_default, noise);
-
-				predictor = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
-				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor(pruned_rules, examples_train, attrs_orig, target_default);
-				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor(pruned_rules, examples_val, attrs_orig, target_default);
-				System.out.printf("The accuracy of pruned tree over validation data is %.1f%%%n" , predictor.getAccuracy());
-
-				System.out.println("Pruned Rule Set:");
-				printRules(pruned_rules);
-
-			}else if((name_dataset.equals("adult"))) {
-				// 6. PRUN THE TREE
-
-				// 6-0. show the performance of the un-pruned tree on the validation set
-				predictor = new Predictor (tree, examples_val, attrs, classes, name_dataset, attrs_orig);
-				//System.out.printf("The accuracy over validation data is %.1f%%%n" , predictor.getAccuracy());
-
-				// The accuracy of un-pruned tree over validation dataset 
-				double acc_val = predictor.getAccuracy();
-
-
-
-				
-				// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
-				// set the pruning approach to reduced-error pruning
-				tree.setPruneApproach("reduced-error pruning");
-				Tree tree_pruned = tree.prune(examples_train, examples_val, null, attrs, classes, name_dataset, attrs_orig, acc_val);
-
-				predictor = new Predictor (tree_pruned, examples_test, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor (tree_pruned, examples_train, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor (tree_pruned, examples_val, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("The accuracy of pruned tree over validation set is %.1f%%%n" , predictor.getAccuracy());
-
-				System.out.println("Pruned Tree:");
-				tree_pruned.display(spaces);
-				 
-
-
-
-				// 6-2. RULE POST PRUNING
-				// set the pruning approach to rule post-pruning
-				tree.setPruneApproach("rule post-pruning");
-
-				tree.resetRules();
-				tree.deriveRules();
-				ArrayList<Rule> rules = tree.getRules();
-				// initialize rules' scores to accuracy over validation set
-				for (Rule r: rules){
-					//r.assignScore(examples_val, attrs_orig);
-					r.setScore(acc_val);
-					//r.setScore(acc_val + Math.random());
-				}
-
-				// Compute the majority of class targets for the default target value
-				String target_default = getMajorityAdult(examples_train);
-				//tree.displayRules();
-				ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes, name_dataset, attrs_orig, acc_val, target_default, noise);
-
-				predictor = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
-				System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor(pruned_rules, examples_train, attrs_orig, target_default);
-				System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
-
-				predictor = new Predictor(pruned_rules, examples_val, attrs_orig, target_default);
-				System.out.printf("The accuracy of pruned tree over validation data is %.1f%%%n" , predictor.getAccuracy());
-
-				System.out.println("Pruned Rule Set:");
-				printRules(pruned_rules);
-			}
-
-		}
-
-
-		if (noise) {
-			// CORRPUT THE TRAIN DATA AND TEST IT WITHOUT/WITH PRUNING (RULE
-			// POST-PRUNING)
-			if (name_dataset.equals("iris")) {
-
-				double acc_val = .0;
-				ArrayList<Integer> list = getShuffledList(examples_train);
-				List<Exp> examples_train_cloned = new ArrayList<Exp>();
-				for (int i = 0; i < examples_train.size(); i++) {
-					Exp e = new Exp();
-					e = examples_train.get(i).clone();
-					examples_train_cloned.add(e);
-				}
-
-				// INJECT NOISE
-				for (int percentage = 0; percentage <= max_noise_limit; percentage = percentage + 2) {
-					// 1. CORRPUT THE TRAINING EXAMPLES
-					examples_train = corrupt(examples_train, list, percentage);
-					System.out.printf("%n%d %% of noise%n", percentage);
-
-					// 2. CREATE THE TREE
-					learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig);
-					tree = learner.getTree();
-
-					// 3. TEST THE TREE WITHOUT PRUNING & EVALUATE
-					predictor = new Predictor(tree, examples_test, attrs, classes, name_dataset, attrs_orig);
-					System.out.printf("The accuracy of the tree over test data is %.1f%%", predictor.getAccuracy());
-
-
-					// tree.resetRules();
-					// tree.displayRules();
-					// System.out.println();
-
-					if (do_prune) {
-						// 4. DERIVE THE RULE SET
-						tree.resetRules();
-						tree.deriveRules();
-						ArrayList<Rule> rules = tree.getRules();
-
-						// 5. TEST THE TREE WITH PRUNING
-
-						// Compute the majority of class targets for the default
-						// target value
-						String target_default = getMajority(examples_train);
-
-						//if (percentage == 0) {
-						// 7-0. show the performance of the un-pruned tree
-						// on the validation set
-						predictor = new Predictor(tree, examples_val, attrs, classes, name_dataset, attrs_orig);
-						// System.out.printf("The accuracy over validation
-						// data is %.1f%%%n" , predictor.getAccuracy());
-
-						// The accuracy of un-pruned tree over validation
-						// dataset
-						acc_val = predictor.getAccuracy();
-
-						// initialize rules' scores to accuracy over validation
-						// set
-						for (Rule r : rules) {
-							//r.assignScore(examples_train, attrs_orig);
-							r.setScore(acc_val);
-						}
-
-						//}
-
-
-						ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes,
-								name_dataset, attrs_orig, acc_val, target_default, noise);
-
-						Predictor predictor2 = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
-						System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n",
-								predictor2.getAccuracy());
-
-						//printRules(pruned_rules);
-						System.out.println();
+		if((name_dataset.equalsIgnoreCase("tennis"))||(name_dataset.equalsIgnoreCase("iris"))) {
+			// 2. LEARNER
+			//printExamples(examples_train);
+			Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig);
+			tree = learner.getTree();
+
+
+			// 3. PRINT the result tree
+			tree.display(spaces);
+
+
+			// 4. PRINT THE RULES
+			System.out.printf("-------------%nRule Set:%n");
+			tree.displayRules();
+
+			// 5. CLASSIFIER/ PREDICTOR (test over test data)
+			
+			System.out.printf("-------------%nEvaluation:");
+			Predictor predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
+			System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
+
+			
+			predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
+			System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
+
+		}else if(name_dataset.equalsIgnoreCase("adult")) {
+			// pre-process iris dataset to discretize the attributes
+			preprocess_Adult(examples_train);
+
+			Tree bestTree = new Tree();
+			double bestAccuracy = 0;
+			double mediumAccuracy = 0; 
+			//divide the training list in folds
+			List<List<Exp>> folds = new ArrayList<List<Exp>>();
+			folds = createFolds(examples_train); 
+			for(int i = 0; i<fold_size; i++){
+				List<Exp> tempExamples_train = new ArrayList<Exp>();
+				for(int j = 0; j <fold_size; j++) {
+					if(i!=j){
+						tempExamples_train.addAll(folds.get(j));
 					}
 				}
+				
+				//create examples_test with fold located at i
+				//create examples_train with the (folds - 1) that were not used in examples_test
+				examples_test = folds.get(i);
+				examples_train = tempExamples_train;
+				
+				
+				Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
+				examples_train = train_val.getfirst();
+				examples_val = train_val.getsecond();
+				
+
+				// 2. LEARNER
+				//printExamples(examples_train);
+				Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig);
+				tree = learner.getTree();
+			
+				
+				// 3. CLASSIFIER/ PREDICTOR (test over test data)
+				
+				
+				System.out.printf("-------------%nEvaluation:");
+				Predictor predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
+				System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
+				
+				predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
+				System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
+				
+				
+				
+				if(bestTree == null) {
+					bestTree = tree;
+				} else {
+					if(bestAccuracy < predictor.getAccuracy()){
+						bestAccuracy = predictor.getAccuracy();
+						bestTree = tree;
+					}
+				}
+				
+				mediumAccuracy = mediumAccuracy + predictor.getAccuracy();  
+				//2. 3. 4. 5.
+				
+				
+			}
+			mediumAccuracy = mediumAccuracy/fold_size;  
+
+
+			// 4. PRINT the result tree
+			bestTree.display(spaces);
+
+
+			// 5. PRINT THE RULES
+			System.out.printf("-------------%nRule Set:%n");
+			bestTree.displayRules();
+
+
+			
+			
+
+		}
+		
+
+		if (do_prune && !noise){
+			if((name_dataset.equals("adult"))) {
+				// 6. PRUN THE TREE
+				tree = pruneTreeAdult(tree, examples_val, name_dataset, examples_train, examples_test, spaces);
 			}
 		}
-
+	}
+	
+	private static List<List<Exp>> createFolds(List<Exp> examples_train) {
+		
+		List<Exp> examplesTemp = new ArrayList<Exp>(); 
+		examplesTemp.addAll(examples_train);
+		long seed = System.nanoTime();
+		//shuffle examples
+		Collections.shuffle(examplesTemp, new Random(seed));
+		
+		List<List<Exp>> returningFolds = new ArrayList<List<Exp>>();
+		for(int i = 0; i < examples_train.size(); i++) {
+			List<Exp> temp = new ArrayList<Exp>();
+			if(returningFolds.size()<fold_size){
+				temp.add(examplesTemp.get(i));
+				returningFolds.add(temp);
+			}else {
+				returningFolds.get(i%fold_size).add(examplesTemp.get(i));
+			}
+		}
+		
+		return returningFolds;
+		
 	}
 
+	
+	private static Tree pruneTreeAdult(Tree tree, List<Exp> examples_val, String name_dataset, List<Exp> examples_train, List<Exp> examples_test, int spaces) throws CloneNotSupportedException{
+		// 6. PRUN THE TREE
+
+		boolean noise = false;
+		// 6-0. show the performance of the un-pruned tree on the validation set
+		Predictor predictor = new Predictor (tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+		//System.out.printf("The accuracy over validation data is %.1f%%%n" , predictor.getAccuracy());
+
+		// The accuracy of un-pruned tree over validation dataset 
+		double acc_val = predictor.getAccuracy();
+
+		// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
+		// set the pruning approach to reduced-error pruning
+		tree.setPruneApproach("reduced-error pruning");
+		Tree tree_pruned = tree.prune(examples_train, examples_val, null, attrs, classes, name_dataset, attrs_orig, acc_val);
+
+		predictor = new Predictor (tree_pruned, examples_test, attrs, classes, name_dataset, attrs_orig);
+		System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
+
+		predictor = new Predictor (tree_pruned, examples_train, attrs, classes, name_dataset, attrs_orig);
+		System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
+
+		predictor = new Predictor (tree_pruned, examples_val, attrs, classes, name_dataset, attrs_orig);
+		System.out.printf("The accuracy of pruned tree over validation set is %.1f%%%n" , predictor.getAccuracy());
+
+		System.out.println("Pruned Tree:");
+		tree_pruned.display(spaces);
+
+		// 6-2. RULE POST PRUNING
+		// set the pruning approach to rule post-pruning
+		tree.setPruneApproach("rule post-pruning");
+
+		tree.resetRules();
+		tree.deriveRules();
+		ArrayList<Rule> rules = tree.getRules();
+		// initialize rules' scores to accuracy over validation set
+		for (Rule r: rules){
+			//r.assignScore(examples_val, attrs_orig);
+			r.setScore(acc_val);
+			//r.setScore(acc_val + Math.random());
+		}
+
+		// Compute the majority of class targets for the default target value
+		String target_default = getMajorityAdult(examples_train);
+		//tree.displayRules();
+		ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes, name_dataset, attrs_orig, acc_val, target_default, noise);
+
+		predictor = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
+		System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
+
+		predictor = new Predictor(pruned_rules, examples_train, attrs_orig, target_default);
+		System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
+
+		predictor = new Predictor(pruned_rules, examples_val, attrs_orig, target_default);
+		System.out.printf("The accuracy of pruned tree over validation data is %.1f%%%n" , predictor.getAccuracy());
+
+		System.out.println("Pruned Rule Set:");
+		printRules(pruned_rules);
+		
+		return tree;
+	}
+	
+	/*
 	private static ArrayList<Integer> getShuffledList(List<Exp> examples_train) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		for( int i = 0; i < examples_train.size(); i++){
@@ -397,34 +327,8 @@ public class Main {
 
 		return list;
 	}
-
-	private static List<Exp> corrupt(List<Exp> examples, ArrayList<Integer> list, int percentage) {
-		// corrupt training examples by "percentage"%
-		if (percentage == 0) {return examples;}
-		for (int i = percentage - 2; i< percentage; i++) {
-			String target_actual = examples.get(list.get(i)).getTarget();
-			String target_random = getRandomTarget(target_actual);
-			//target_random = "Iris-setosa";
-
-			//System.out.println(target_actual + " " + target_random);
-			examples.get(list.get(i)).settarget(target_random);
-		}
-
-		return examples;
-	}
-
-	private static String getRandomTarget(String target_actual) {
-		String output = target_actual;
-		while (output.equals(target_actual)){
-			double t = Math.random();
-			int rnd = (int) (t * classes.length);
-			//System.out.println(rnd);
-			output = replace(classes[rnd]);
-		}
-
-		return output;
-	}
-
+*/
+	
 	private static void printRules(ArrayList<Rule> rules) {
 
 		for (Rule r : rules) {
@@ -436,9 +340,7 @@ public class Main {
 
 			}
 			System.out.printf(" => %s%n", r.getTarget());
-
 		}
-
 	}
 
 	private static void preprocess_Iris(List<Exp> examples) {
@@ -572,7 +474,7 @@ public class Main {
 		// pinpoint thresholds on which the target value switches
 
 		Set<Double> c = new HashSet<Double>();
-		DecimalFormat dec_form = new DecimalFormat("0.##");
+		//DecimalFormat dec_form = new DecimalFormat("0.##");
 
 		String sentinel = examples.get(0).getTarget();
 		for (int i = 0; i <examples.size(); i++){
@@ -583,16 +485,10 @@ public class Main {
 
 				c.add(tmp);
 				sentinel = examples.get(i).getTarget();
-				//envia um threshold aleatorio enquanto não conseguimos fazer ele enviar o melhor
-				//return c;
-
 			}
 		}
-
-
 		return c;
 	}
-
 
 
 	private static List<Exp> cleanMissingValues(List<Exp> examples) {
@@ -631,8 +527,6 @@ public class Main {
 
 						//System.out.printf("%s, ", examples.get(i).getData()[a]);
 						//System.out.printf("%s%n", examples.get(j).getData()[a]);
-
-
 					}
 				}
 			}
@@ -641,39 +535,6 @@ public class Main {
 		return examples;
 	}
 
-	private static String getMajority(List<Exp> examples) {
-
-		int[] counter = new int[classes.length];
-
-		for (Exp exp: examples){
-			switch (exp.getTarget()) {
-			case "Iris-setosa":
-				counter[0]++;
-				break;
-			case "Iris-versicolor":
-				counter[1]++;
-				break;
-			case "Iris-virginica":
-				counter[2]++;
-				break;
-			default:
-				break;
-			}
-		}
-
-		// find the max
-		int max = Integer.MIN_VALUE, idx = 0;
-		for (int i = 0; i < counter.length - 1; i++){
-			if ( counter[i] >= max){
-				max = counter[i];
-				idx = i;
-			}
-		}
-
-		String t = replace(idx);
-
-		return t;
-	}
 
 	private static String getMajorityAdult(List<Exp> examples) {
 
@@ -705,37 +566,9 @@ public class Main {
 
 		return t;
 	}
-	// auxiliary functions
 
-	private static String replace(int i) {
-		// 0 is replaced with Yes or Iris-setosa
-		// 1 is replaced with No or Iris-versicolor
-		// 2 is replaced with Iris-virginica
-
-		String output = "noun";
-
-		switch (i) {
-		case 0:
-			output = "Iris-setosa";
-			break;
-		case 1:
-			output = "Iris-versicolor";
-			break;
-		case 2:
-			output = "Iris-virginica";
-			break;
-		default:
-			output = "noun";
-			break;
-		}
-
-		return output;
-	}
 
 	private static String replaceAdult(int i) {
-		// 0 is replaced with Yes or Iris-setosa
-		// 1 is replaced with No or Iris-versicolor
-		// 2 is replaced with Iris-virginica
 
 		String output = "noun";
 
@@ -752,17 +585,6 @@ public class Main {
 		}
 
 		return output;
-	}
-
-	private static void printExamples(List<Exp> examples) {
-		for (int i = 0; i < examples.size(); i++){
-			System.out.printf("%d ", i);
-			for (int j = 0; j < 4; j++){
-				System.out.printf("%s ", examples.get(i).getData()[j]);
-			}
-			System.out.printf(": %s%n", examples.get(i).getTarget());
-		}
-
 	}
 
 	private static void setAttrs_size(int i) {
@@ -1084,7 +906,5 @@ public class Main {
 				System.out.println(Arrays.asList(val.get(linha).get(preenche)));
 			}
 		}
-
 	}
-
 }

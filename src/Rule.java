@@ -2,18 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * 
- * @author Maryam Najafi, mnajafi2012@my.fit.edu
- *
- * Feb 20, 2017
- * 
- * Course:  CSE 5693, Fall 2017
- * Project: HW2, Decision Tree_ID3
- * 
- * A rule contains a bunch of preconditions (e.g. sepal-width <= 4.49) plus a target (virginica)
- * Also a rule has a score when its preconditions are being pruned.
- */
+
 public class Rule implements Comparable<Rule>{
 
 	private ArrayList<String> preconditions;
