@@ -20,7 +20,8 @@ public class Tree {
 	private static boolean continuepruning = false;
 	private static String cutting_attr;
 	private static int counter = 0;
-
+	private static int totalNodes = 0;
+	
 	public Tree() {
 		// set an approach default to "reduced-error pruning"
 		this.setPruneApproach("reduced-error pruning");
@@ -153,9 +154,9 @@ public class Tree {
 
 		tmp.setRoot(this.getRoot());
 		tmp.setParent(this.getParent());
-		if (this.getChildren() != null)
+		if (this.getChildren() != null) {
 			tmp.setChildren((HashMap<String, Tree>) this.getChildren().clone());
-
+		}
 		return tmp;
 
 	}
@@ -180,7 +181,7 @@ public class Tree {
 
 		pruned_tree = reduced_error_prun(examples_train, examples_val, Attributes, classes, name_dataset, attrs_orig,
 				acc_val_ref);
-		System.out.printf("%n--------%nTree pruning using Reduced-Error Pruning:%n--------");
+		//System.out.printf("%n--------%nTree pruning using Reduced-Error Pruning:%n--------");
 
 		return pruned_tree;
 	}
@@ -200,6 +201,10 @@ public class Tree {
 		return pruned_ruleset;
 	}
 
+	protected void setAttrCut() {
+		this.cutting_attr = null;
+	}
+	
 	private Tree reduced_error_prun(List<Exp> examples_train, List<Exp> examples_val, String[] Attributes,
 			int[] classes, String name_dataset, String[] attrs_orig, double acc_val_ref)
 			throws CloneNotSupportedException {
@@ -209,15 +214,24 @@ public class Tree {
 		// String cutting_attr = what_to_cut();
 		// cutting_attr = "sepal-width<=2.65"; // change this hard coded
 		// part!!!!!
-
+		//System.out.println("cutting_attr: "+cutting_attr);
+		//Predictor predictor = new Predictor (this, examples_val, Attributes, classes, name_dataset, attrs_orig);
+		//double accuracyTemp = predictor.getAccuracy();
+		
 		// 2. CUT THE TREE FROM THE CANDIDATE ATTRIBUTE A
-		Tree pruned_tree = this.cut(cutting_attr, examples_train, examples_val, classes, name_dataset, attrs_orig,
-				acc_val_ref);
+		Tree pruned_tree = this.cut(cutting_attr, examples_train, examples_val, classes, name_dataset, attrs_orig, acc_val_ref);
 
 		// 3. EVALUATE THE TREE AFTER PRUNING THE TREE
-
+		//predictor = new Predictor (pruned_tree, examples_val, Attributes, classes, name_dataset, attrs_orig);
+		//System.out.printf("The accuracy is %.1f%%%n%n" , predictor.getAccuracy());
+		
 		// 4. STOP IF THE PRUNING IS GETTING HARMFUL (GAIN IS DECREASING)
-
+		//if(accuracyTemp >= predictor.getAccuracy()){
+		/*for(int i = 0; i < 12; i++) {
+			System.out.println("Teste recursão na poda");
+			pruned_tree = this.cut(cutting_attr, examples_train, examples_val, classes, name_dataset, attrs_orig, predictor.getAccuracy());
+			//reduced_error_prun(examples_train,examples_val,Attributes,classes,name_dataset,attrs_orig,predictor.getAccuracy());
+		}*/
 		return pruned_tree;
 	}
 
@@ -241,6 +255,7 @@ public class Tree {
 
 		// CUT HERE
 		buffer.clear();
+		setAttrCut();
 		mirror_tree = traverse(mirror_tree, examples_train, examples_val, classes, acc_val_ref, name_dataset,
 				attrs_orig);
 
@@ -257,14 +272,19 @@ public class Tree {
 
 		Iterator<Entry<String, Tree>> itr;
 		Tree tmp = null;
+		
+//		Predictor predictor2 = new Predictor(tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+//		System.out.printf("\nBeginning The accuracy is %.1f%%%n%n" , predictor2.getAccuracy());
 
 		if (tree.getChildren() == null) {
 			// you have reached to the end with no observing the cutting
 			// attribute
 			// go back and try different rule
+
 			return tree;
 		} else {
-
+//			Predictor predictor7 = new Predictor(tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+//			System.out.printf("\n7 The accuracy is %.1f%%%n%n" , predictor7.getAccuracy());
 			itr = tree.getChildren().entrySet().iterator();
 		}
 
@@ -273,6 +293,8 @@ public class Tree {
 			if (tree.getRoot().equalsIgnoreCase(cutting_attr)) {
 				continuepruning = true;
 			} else {
+//				Predictor predictor5 = new Predictor(tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+//				System.out.printf("\n5 The accuracy is %.1f%%%n%n" , predictor5.getAccuracy());
 				continuepruning = false;
 			}
 		} else {
@@ -310,7 +332,7 @@ public class Tree {
 							counter[i]++;
 						}
 					}
-				}
+				}//System.out.println("counter["+i+"]"+counter[i]);
 			}
 			// vote for the most (find the maximum)
 			int max = 0;
@@ -321,7 +343,7 @@ public class Tree {
 					max = i;
 				}
 			}
-			
+//			System.out.println("sentinel"+sentinel);
 			if(name_dataset.equals("adult")) {
 				t.setRoot(replaceAdult(max));
 			} else {
@@ -331,6 +353,9 @@ public class Tree {
 			
 			t.setChildren(null);
 
+//			Predictor predictor3 = new Predictor(t, examples_val, attrs, classes, name_dataset, attrs_orig);
+//			System.out.printf("\nPrunning T The accuracy is %.1f%%%n%n" , predictor3.getAccuracy());
+			
 			// form the mirror-tree
 			this.counter = 0;
 
@@ -341,8 +366,12 @@ public class Tree {
 			// 3. EVALUATE THE NEWLY PRUNED TREE
 			Predictor predictor = new Predictor(mirror_tree, examples_val, attrs, classes, name_dataset, attrs_orig);
 			double acc = predictor.getAccuracy();
+//			System.out.printf("\nContinue prunning The accuracy is %.1f%%%n%n" , predictor.getAccuracy());
 			if (acc >= acc_val_ref) {
-				cutting_attr = t.getParent().getRoot();
+				if(t.getParent()!=null) {
+					cutting_attr = t.getParent().getRoot();
+				}
+//				System.out.println("cutting_attr "+cutting_attr);
 				up = true;
 
 				// clone the pruned tree to the original tree
@@ -366,7 +395,8 @@ public class Tree {
 			// go back and try different rule
 			return tree;
 		} else {
-
+//			Predictor predictor6 = new Predictor(tree, examples_val, attrs, classes, name_dataset, attrs_orig);
+//			System.out.printf("\n 6 The accuracy is %.1f%%%n%n" , predictor6.getAccuracy());
 			itr = tree.getChildren().entrySet().iterator();
 		}
 
@@ -379,6 +409,8 @@ public class Tree {
 
 			tmp = t.getValue();
 			buffer.add(t.getKey());
+//			Predictor predictor4 = new Predictor(tmp, examples_val, attrs, classes, name_dataset, attrs_orig);
+//			System.out.printf("\nPrunning TMP The accuracy is %.1f%%%n%n" , predictor4.getAccuracy());
 			tmp = traverse(tmp, examples_train, examples_val, classes, acc_val_ref, name_dataset, attrs_orig);
 			if (buffer.size() > 1) {
 				buffer.remove(buffer.size() - 1);
@@ -393,7 +425,8 @@ public class Tree {
 			}
 
 		}
-
+//		Predictor predictor = new Predictor (mirror_tree, examples_train, attrs, classes, name_dataset, attrs_orig);
+//		System.out.printf("The accuracy is %.1f%%%n%n" , predictor.getAccuracy());
 		return mirror_tree;
 	}
 
@@ -458,7 +491,7 @@ public class Tree {
 			int[] classes, String name_dataset, String[] attrs_orig, double acc_val_ref, String target_default) {
 		// The rule post-pruning approach
 
-		/*// Go through a loop over the set of all rules
+		// Go through a loop over the set of all rules
 		do {
 
 			// 0. FOR EVERY ITERATION BEFORE PRUNING KEEP A COPY OF UNPRUNED
@@ -508,11 +541,11 @@ public class Tree {
 				
 				
 				
-				acc_val_ref = acc_tmp;
+				if(acc_val_ref < acc_tmp)acc_val_ref = acc_tmp;
 				continue;
 			}
 
-		} while (true);*/
+		} while (true);
 		
 		
 		double accuracy_prunedRuleset = .0;
@@ -551,16 +584,16 @@ public class Tree {
 				}else {
 					// Good pruning! Go ahead!
 					// RESET EACH RULE'S SCORE
-					/*for (Rule r : rules) {
+					for (Rule r : rules) {
 						r.assignScore(examples_train, attrs_orig);
-					}*/
+					}
 					 
 					// UPDATE THE ESTIMATE ACCURACY OF THE RULE IF IT'S NOT BEEN ELIMINATED
 					if (!rule_candidate.isEmpty()){
 						rule_candidate.setScore(acc_tmp);
 					}
-
-					//acc_val_ref = acc_tmp;
+					
+					if(acc_val_ref < acc_tmp)acc_val_ref = acc_tmp;
 				}
 
 			}
@@ -786,5 +819,37 @@ public class Tree {
 		preconditions = new ArrayList<String>();
 		
 	}
+	
+	public int displayCount(int spaces) throws CloneNotSupportedException {
+		totalNodes=0;
+		this.countNode(spaces);
+		return totalNodes;
+	}
+	public int countNode(int spaces) throws CloneNotSupportedException {
+		// print out this tree
+		Tree tmp = new Tree();
+		tmp = this.clone();
+		Iterator<Entry<String, Tree>> itr;
 
+		if (tmp.getChildren() == null) {
+			
+			return spaces;
+		} else {
+			totalNodes++;
+			itr = tmp.getChildren().entrySet().iterator();
+		}
+		while (itr.hasNext()) {
+
+			Entry<String, Tree> t = itr.next();
+			tmp = t.getValue();
+
+			if (tmp.getChildren() != null) {
+				spaces += getShiftSpace();
+			}
+
+			spaces = tmp.countNode(spaces);
+		}
+		return spaces - getShiftSpace();
+
+	}
 }

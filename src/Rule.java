@@ -61,29 +61,59 @@ public class Rule implements Comparable<Rule>{
 			String target_exp = exp.getTarget();
 			String target_rule = this.getTarget();
 			
-			//System.out.println(counter); counter++;
+//			System.out.println(counter); 
+			counter++;
 			for (int i = 0; i < this.size(); i = i + 2){
 				
 				String attr = this.getPreconditions().get(i); // e.g. sepal-width <= 1.5
+//				System.out.println("attr: "+attr);
 				String v = this.getPreconditions().get(i + 1); // e.g. t or f
+//				System.out.println("v: "+v);
 				
 				
 				// find the index of attr in global Attributes.
 				int idx = Arrays.asList(attrs_orig).indexOf(attr.split("<=")[0]);
+//				System.out.println("idx: "+idx);
 				// find the value of attribute in example
 				String v_exp = exp.get(idx);
+//				System.out.println("v_exp: "+v_exp);
 				
 				
-				// convert both values from string to double
-				Double thr = Double.valueOf(attr.split("<=")[1]); // e.g. 1.5
-				Double v_exp_double = Double.valueOf(v_exp);
+				
+
+
 				
 				
-				if (v.equals("true")) {
-					match = v_exp_double <= thr ? true:false;
+
+				
+				
+				if(attr.contains("<=")){
+//					// convert both values from string to double
+//					Double thr = Double.valueOf(attr.split("<=")[1]); // e.g. 1.5
+//					Double v_exp_double = Double.valueOf(v_exp);
+					// convert both values from string to double
+					Double thr = Double.valueOf(attr.split("<=")[1]); // e.g. 1.5
+//					System.out.println("thr: "+thr);
+
+					Double v_exp_double = Double.valueOf(v_exp);
+					//System.out.println("v_exp_double: "+v_exp_double);
 					
-				}else if (v.equals("false")){
-					match = thr < v_exp_double ? true:false;
+//					if (v.equals("true")) {
+//						match = v_exp_double <= thr ? true:false;
+//						
+//					}else if (v.equals("false")){
+//						match = thr < v_exp_double ? true:false;
+//					}
+//					
+					if (v.equals("true")) {
+						match = v_exp_double <= thr ? true:false;
+						
+					}else if (v.equals("false")){
+						match = thr < v_exp_double ? true:false;
+					}
+					
+				}else {
+					match = v.equals(v_exp);
 				}
 				
 				if (!match){

@@ -14,18 +14,20 @@ public class Learner {
 	private String[] Attributes_orig;
 	private static String[] Attributes_minus_A;
 	//private static int counter = 0;
+	private List<Exp> Examples_test;
 
 
 	// constructor
 	Learner (List<Exp> Examples, String[] Attributes, HashMap<String,
-			ArrayList<String>> attr_vals, int[] Target_attributes, String name_dataset, String[] attrs_orig){
+			ArrayList<String>> attr_vals, int[] Target_attributes, String name_dataset, String[] attrs_orig, List<Exp> Test){
 
 		setAttribute_values(attr_vals);
 		setAttributes(Attributes);
 		setDatasetName(name_dataset);
 		setOriginalAttributes(attrs_orig);
 		Attributes_minus_A = getAttributes();
-
+		Examples_test = Test;
+		
 		// train the dataset by modeling a decision tree
 		tree = train(Examples, Target_attributes);
 
@@ -98,7 +100,12 @@ public class Learner {
 					children.put(vi, subtree);
 					tree.setChildren(children);
 				}	
-
+				/*if(examples_vi.size() != 0) {
+				Predictor predictor = new Predictor (subtree, Examples, Attributes, Target_attributes, dataset, Attributes_orig);
+				System.out.printf("Train "+Examples.size()+"Size of "+examples_vi.size()+" The accuracy is %.1f%%%n%n" , predictor.getAccuracy());
+				Predictor predictortest = new Predictor (subtree, Examples_test, Attributes, Target_attributes, dataset, Attributes_orig);
+				System.out.printf("Test "+Examples.size()+"Size of "+examples_vi.size()+" The accuracy is %.1f%%%n%n" , predictortest.getAccuracy());
+				}*/
 			}
 
 
