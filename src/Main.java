@@ -2,38 +2,30 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-//import java.text.DecimalFormat;
 import java.util.*;
 
 
 public class Main {
 
-
 	static int[] classes;
-	// classes in tennis: 0/1 = yes/no; whereas in iris: 0/1/2 = setosa versicolor virginica
-	static HashMap<String, ArrayList<String>> attr_vals = new HashMap<String, ArrayList<String>>();
-	private static int attrs_size = 4;
-	static String[] attrs; // Tennis has 4 attrs while Iris needs to be preprocessed.
-	static String[] attrs_orig = new String[4];
-	private static double ratio = 1; // e.g. 90% goes as training, the rest as val. set
-	private static int max_noise_limit = 20; // 20% given by the problem
+	static HashMap<String, ArrayList<String>> atrib_val = new HashMap<String, ArrayList<String>>();
+	private static int tamnho_atrib = 4;
+	static String[] atrbs; 
+	static String[] atrib_orig = new String[4];
+	private static double ratio = 1;
 	static double seed = .0;
 	static int fold_size = 10;
+	private static List<Double> acuraciaTreinamento = new ArrayList<Double>();
+	private static List<Double> acuraciaValidacao = new ArrayList<Double>();
+	private static List<Double> acuraciaTeste = new ArrayList<Double>();
 
-	/**
-	 * @param args
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 * @throws CloneNotSupportedException
-	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException, CloneNotSupportedException {
 
-		// variable definitions
 		ArrayList<String> input_args = new ArrayList<String>();
 		String name_dataset; boolean noise =false, do_prune = false;
 		for (String s: args){input_args.add(s);}
 		switch (input_args.size()){
-		case 1: {name_dataset = input_args.get(0); break;} // iris
+		case 1: {name_dataset = input_args.get(0); break;}
 		case 2: {name_dataset = input_args.get(0); noise = true; break;}
 		case 3: {name_dataset = input_args.get(0); do_prune= true; 
 		ratio = Double.valueOf(input_args.get(2)); break;}
@@ -44,66 +36,37 @@ public class Main {
 		}
 		}
 
-		Random generator = new Random((long) seed);
-
 		String txt_attrs = "", txt_input_train = "", txt_input_test;
-		List<Exp> examples_train = new ArrayList<Exp>();
-		List<Exp> examples_train_orig = new ArrayList<Exp>();
-		List<Exp> examples_val = new ArrayList<Exp>();
-		List<Exp> examples_test = new ArrayList<Exp>();
+		List<Dados> examples_train = new ArrayList<Dados>();
+		List<Dados> examples_train_orig = new ArrayList<Dados>();
+		List<Dados> examples_val = new ArrayList<Dados>();
+		List<Dados> examples_test = new ArrayList<Dados>();
 		int spaces = 10;
-		Tree tree = new Tree();
+		Arvore arvr = new Arvore();
 
-		// 1. PRE-PROCESS
 		if (name_dataset.equalsIgnoreCase("tennis")){
-			System.out.printf("Tennis Data Set: %n-------------%n");
+			System.out.printf("Arquivo PlayTennis: %n");
 			txt_attrs = System.getProperty("user.dir").concat("/tennis-attr.txt");
 			txt_input_train = System.getProperty("user.dir").concat("/tennis-train.txt");
 			txt_input_test = System.getProperty("user.dir").concat("/tennis-test.txt");
 
-			// a) read from input text file for the tennis dataset
 			setAttrs_size(4);
 			readAttributes(txt_attrs);
 			examples_train = readExamples(txt_input_train);
 			examples_test = readExamples(txt_input_test);
 
-		}else if (name_dataset.equalsIgnoreCase("iris")){
-			System.out.printf("Iris Data Set: %n-------------%n");
-			txt_attrs = System.getProperty("user.dir").concat("/iris-attr.txt");
-			txt_input_train = System.getProperty("user.dir").concat("/iris-train.txt");
-			txt_input_test = System.getProperty("user.dir").concat("/iris-test.txt");
-
-			// b) read from input text file for the iris dataset
-			setAttrs_size(4);
-			readAttributes(txt_attrs);
-			examples_train = readExamples(txt_input_train);
-
-			// split training data into training and validation sets
-			Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
-			examples_train = train_val.getfirst();
-			examples_val = train_val.getsecond();
-
-			examples_test = readExamples(txt_input_test);
-			attrs_orig = attrs.clone();
-
-			// pre-process iris dataset to discretize the attributes
-			preprocess_Iris(examples_train);
-
-
-			System.out.println();
 		}else if (name_dataset.equalsIgnoreCase("adult")){
-			System.out.printf("Adult Data Set: %n-------------%n");
+			System.out.printf("Arquivo Adult: %n");
 			txt_attrs = System.getProperty("user.dir").concat("/adult-attr.txt");
-			txt_input_train = System.getProperty("user.dir").concat("/adult-train.txt");
+			txt_input_train = System.getProperty("user.dir").concat("/adult-train-reduzido.txt");
 			txt_input_test = System.getProperty("user.dir").concat("/adult-test.txt");
 
-			// b) read from input text file for the adult dataset
 			setAttrs_size(14);
 			readAttributes(txt_attrs);
 			examples_train = readExamples(txt_input_train);
 
 			// split training data into training and validation sets
-			//Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
+			//Conjunto<List<Dados>, List<Dados>> train_val = split_into_train_val(examples_train, getRatio());
 			//examples_train = train_val.getfirst();
 			//examples_val = train_val.getsecond();
 			System.out.println("Limpando missing values de train data");
@@ -116,94 +79,70 @@ public class Main {
 			//examples_test = readExamples(txt_input_test);
 			//System.out.println("Limpando missing values de teste...");
 			//examples_test = cleanMissingValues(examples_test);
-			attrs_orig = attrs.clone();
+			atrib_orig = atrbs.clone();
 
 			System.out.println();
 		}
 
-		if((name_dataset.equalsIgnoreCase("tennis"))||(name_dataset.equalsIgnoreCase("iris"))) {
-			// 2. LEARNER
-			//printExamples(examples_train);
-			Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig,examples_test);
-			tree = learner.getTree();
+		if(name_dataset.equalsIgnoreCase("tennis")) {
+			Aprendizado aprend = new Aprendizado(examples_train, atrbs, atrib_val, classes, name_dataset, atrib_orig,examples_test);
+			arvr = aprend.getTree();
 
+			arvr.display(spaces);
 
-			// 3. PRINT the result tree
-			tree.display(spaces);
-
-
-			// 4. PRINT THE RULES
-			System.out.printf("-------------%nRule Set:%n");
-			tree.displayRules();
-
-			// 5. CLASSIFIER/ PREDICTOR (test over test data)
+			System.out.printf("-------------%nRegras: %n");
+			arvr.displayRules();
 			
-			System.out.printf("-------------%nEvaluation:");
-			Predictor predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
-			System.out.printf("%nThe accuracy over test data is %.1f%%%n" , predictor.getAccuracy());
+			System.out.printf("-------------%nAcuracia: %n");
+			Acuracia acuracia = new Acuracia (arvr, examples_test, atrbs, classes, name_dataset, atrib_orig);
+			System.out.printf("Acuracia no teste: %.1f%%%n" , acuracia.getAccuracy());
 
 			
-			predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
-			System.out.printf("The accuracy over train data is %.1f%%%n%n" , predictor.getAccuracy());
+			acuracia = new Acuracia (arvr, examples_train, atrbs, classes, name_dataset, atrib_orig);
+			System.out.printf("Acuracia no treinamento: %.1f%%%n%n" , acuracia.getAccuracy());
 
 		}else if(name_dataset.equalsIgnoreCase("adult")) {
-			// pre-process iris dataset to discretize the attributes
 			preprocess_Adult(examples_train);
 
-			Tree bestTree = new Tree();
+			Arvore bestTree = new Arvore();
 			double bestAccuracy = 0;
 			double mediumAccuracy = 0; 
-			//divide the training list in folds
-			List<List<Exp>> folds = new ArrayList<List<Exp>>();
+			List<List<Dados>> folds = new ArrayList<List<Dados>>();
 			System.out.println("Iniciando 10-Fold-Cross-Validation");
 			folds = createFolds(examples_train); 
 			for(int i = 0; i<fold_size; i++){
-				List<Exp> tempExamples_train = new ArrayList<Exp>();
+				List<Dados> tempExamples_train = new ArrayList<Dados>();
 				for(int j = 0; j <fold_size; j++) {
 					if(i!=j){
 						tempExamples_train.addAll(folds.get(j));
 					}
 				}
 				
-				//create examples_test with fold located at i
-				//create examples_train with the (folds - 1) that were not used in examples_test
 				examples_test = folds.get(i);
 				examples_train = tempExamples_train;
 				
+				Aprendizado aprend = new Aprendizado(examples_train, atrbs, atrib_val, classes, name_dataset, atrib_orig,examples_test);
+				arvr = aprend.getTree();
+							
+				System.out.printf("-------------%nAcuracia 10-fold:%n");
+				Acuracia acuracia = new Acuracia (arvr, examples_train, atrbs, classes, name_dataset, atrib_orig);
+				System.out.printf("Acuracia no treinamento: %.1f%%%n" , acuracia.getAccuracy());
 				
-				
-				
-
-				// 2. LEARNER
-				//printExamples(examples_train);
-				Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig,examples_test);
-				tree = learner.getTree();
-			
-				
-				// 3. CLASSIFIER/ PREDICTOR (test over test data)
-				
-				
-				System.out.printf("-------------%nEvaluation 10-fold:%n");
-				Predictor predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("The accuracy over train data is %.1f%%" , predictor.getAccuracy());
-				
-				predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
-				System.out.printf("%nThe accuracy over test data is %.1f%%%n%n" , predictor.getAccuracy());
+				acuracia = new Acuracia (arvr, examples_test, atrbs, classes, name_dataset, atrib_orig);
+				System.out.printf("Acuracia no teste: %.1f%%%n" , acuracia.getAccuracy());
 				
 				
 				
 				if(bestTree == null) {
-					bestTree = tree;
+					bestTree = arvr;
 				} else {
-					if(bestAccuracy < predictor.getAccuracy()){
-						bestAccuracy = predictor.getAccuracy();
-						bestTree = tree;
+					if(bestAccuracy < acuracia.getAccuracy()){
+						bestAccuracy = acuracia.getAccuracy();
+						bestTree = arvr;
 					}
 				}
 				
-				mediumAccuracy = mediumAccuracy + predictor.getAccuracy();  
-				// 4. 5.
-				
+				mediumAccuracy = mediumAccuracy + acuracia.getAccuracy();  				
 				
 			}
 			mediumAccuracy = mediumAccuracy/fold_size;  
@@ -212,75 +151,71 @@ public class Main {
 			System.out.println("Fim do 10-Fold-Cross-Validation");
 			
 			System.out.println("Inicio do holdout para fazer a poda");
-			List<List<Exp>> foldsHoldout = new ArrayList<List<Exp>>();
+			List<List<Dados>> foldsHoldout = new ArrayList<List<Dados>>();
 			fold_size = 3;
 			foldsHoldout = createFolds(examples_train_orig); 
 			examples_train.addAll(foldsHoldout.get(0));
 			examples_train.addAll(foldsHoldout.get(1));
 			examples_test.addAll(foldsHoldout.get(2));
 			
-			Pair<List<Exp>, List<Exp>> train_val = split_into_train_val(examples_train, getRatio());
+			Conjunto<List<Dados>, List<Dados>> train_val = split_into_train_val(examples_train, getRatio());
 			examples_train = train_val.getfirst();
 			examples_val = train_val.getsecond();
 			
-			// 2. LEARNER
-			//printExamples(examples_train);
-			Learner learner = new Learner(examples_train, attrs, attr_vals, classes, name_dataset, attrs_orig,examples_test);
-			tree = learner.getTree();
+			Aprendizado aprend = new Aprendizado(examples_train, atrbs, atrib_val, classes, name_dataset, atrib_orig,examples_test);
+			arvr = aprend.getTree();
 		
+			System.out.printf("-------------%nAcuracia no Holdout:%n");
+			Acuracia acuracia = new Acuracia (arvr, examples_train, atrbs, classes, name_dataset, atrib_orig);
+			System.out.printf("Acuracia no treinamento: %.1f%%%n%n" , acuracia.getAccuracy());
 			
-			// 3. CLASSIFIER/ PREDICTOR (test over test data)
-			System.out.printf("-------------%nEvaluation Holdout:%n");
-			Predictor predictor = new Predictor (tree, examples_train, attrs, classes, name_dataset, attrs_orig);
-			System.out.printf("The accuracy over train data is %.1f%%" , predictor.getAccuracy());
+			acuracia = new Acuracia (arvr, examples_test, atrbs, classes, name_dataset, atrib_orig);
+			System.out.printf("Acuracia no teste: %.1f%%%n%n" , acuracia.getAccuracy());
 			
-			predictor = new Predictor (tree, examples_test, attrs, classes, name_dataset, attrs_orig);
-			System.out.printf("%nThe accuracy over test data is %.1f%%%n%n" , predictor.getAccuracy());
-			
-			// 4. PRINT the result tree
-			tree.display(spaces);
+			arvr.display(spaces);
 
-
-			// 5. PRINT THE RULES
-			System.out.printf("-------------%nRule Set:%n");
-			tree.displayRules();
+			System.out.printf("-------------%nRegras:%n");
+			arvr.displayRules();
 
 		}
-		
+		System.out.println("Total de nós antes da poda " + arvr.displayCount(spaces));
 
 		if (do_prune && !noise){
 			if((name_dataset.equals("adult"))) {
 				
-				// 6. PRUN THE TREE
 				System.out.println("");
 				System.out.println("");
 				System.out.println("Primeira poda....................");
-				System.out.println("Total de nós antes da poda " + tree.displayCount(spaces));
-				tree = pruneTreeAdult(tree, examples_val, name_dataset, examples_train, examples_test, spaces);
-				System.out.println("Total de nós depois da poda" + tree.displayCount(spaces));
-				for(int i = 0; i<35; i++) {
-					tree = pruneTreeAdult(tree, examples_val, name_dataset, examples_train, examples_test, spaces);
-					System.out.println("Total de nós " + tree.displayCount(spaces));
+				System.out.println("Total de nós antes da poda " + arvr.displayCount(spaces));
+				//acuracia em validation
+				Acuracia acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
+				double acuraciaValidation = acuracia.getAccuracy();
+				//for(int i = 0; i<35; i++) {
+				int numNo = arvr.displayCount(spaces) + 1;
+				while((acuraciaValidation <= acuracia.getAccuracy())&&(numNo > arvr.displayCount(spaces))) {
+					numNo = arvr.displayCount(spaces);
+					acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
+					arvr = podaArvoreAdult(arvr, examples_val, name_dataset, examples_train, examples_test, spaces);
+					System.out.println("Total de nós depois da poda" + arvr.displayCount(spaces));
+					//System.out.println("Total de nós " + arvr.displayCount(spaces));
+					acuraciaValidation = acuracia.getAccuracy();
+					
 				}
 				
-				
-				//System.out.println("Terceira poda....................");
-				//tree = pruneTreeAdult(tree, examples_val, name_dataset, examples_train, examples_test, spaces);
 			}
 		}
 	}
 	
-	private static List<List<Exp>> createFolds(List<Exp> examples_train) {
+	private static List<List<Dados>> createFolds(List<Dados> examples_train) {
 		
-		List<Exp> examplesTemp = new ArrayList<Exp>(); 
+		List<Dados> examplesTemp = new ArrayList<Dados>(); 
 		examplesTemp.addAll(examples_train);
 		long seed = System.nanoTime();
-		//shuffle examples
 		Collections.shuffle(examplesTemp, new Random(seed));
 		
-		List<List<Exp>> returningFolds = new ArrayList<List<Exp>>();
+		List<List<Dados>> returningFolds = new ArrayList<List<Dados>>();
 		for(int i = 0; i < examples_train.size(); i++) {
-			List<Exp> temp = new ArrayList<Exp>();
+			List<Dados> temp = new ArrayList<Dados>();
 			if(returningFolds.size()<fold_size){
 				temp.add(examplesTemp.get(i));
 				returningFolds.add(temp);
@@ -294,74 +229,68 @@ public class Main {
 	}
 
 	
-	private static Tree pruneTreeAdult(Tree tree, List<Exp> examples_val, String name_dataset, List<Exp> examples_train, List<Exp> examples_test, int spaces) throws CloneNotSupportedException{
-		// 6. PRUN THE TREE
-
+	private static Arvore podaArvoreAdult(Arvore arvr, List<Dados> examples_val, String name_dataset, List<Dados> examples_train, List<Dados> examples_test, int spaces) throws CloneNotSupportedException{
 		boolean noise = false;
-		// 6-0. show the performance of the un-pruned tree on the validation set
-		Predictor predictor = new Predictor (tree, examples_val, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("The accuracy over validation data is %.1f%%%n" , predictor.getAccuracy());
+		Acuracia acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
+		System.out.printf("Acuracia na validacao %.1f%%%n" , acuracia.getAccuracy());
 
-		// The accuracy of un-pruned tree over validation dataset 
-		double acc_val = predictor.getAccuracy();
+		double acc_val = acuracia.getAccuracy();
 
-		// 6-1. TREE PRUNING (REDUCED-ERROR PRUNING)
-		// set the pruning approach to reduced-error pruning
-		tree.setPruneApproach("reduced-error pruning");
-		Tree tree_pruned = tree.prune(examples_train, examples_val, null, attrs, classes, name_dataset, attrs_orig, acc_val);
-
-		predictor = new Predictor (tree_pruned, examples_test, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("The accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
-
-		predictor = new Predictor (tree_pruned, examples_train, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
-
-		predictor = new Predictor (tree_pruned, examples_val, attrs, classes, name_dataset, attrs_orig);
-		System.out.printf("The accuracy of pruned tree over validation set is %.1f%%%n" , predictor.getAccuracy());
-
-		System.out.println("Pruned Tree:");
+		arvr.setPruneApproach("reduced-error pruning");
+		Arvore tree_pruned = arvr.prune(examples_train, examples_val, null, atrbs, classes, name_dataset, atrib_orig, acc_val);
+		arvr = tree_pruned;
+		acuracia = new Acuracia (tree_pruned, examples_test, atrbs, classes, name_dataset, atrib_orig);
+		//System.out.printf("Poda | Acuracia no teste: %.1f%%%n" , acuracia.getAccuracy());
+		acuraciaTeste.add(acuracia.getAccuracy());
+		acuracia = new Acuracia (tree_pruned, examples_train, atrbs, classes, name_dataset, atrib_orig);
+		//System.out.printf("Poda | Acuracia no treinamento: %.1f%%%n" , acuracia.getAccuracy());
+		acuraciaTreinamento.add(acuracia.getAccuracy());
+		acuracia = new Acuracia (tree_pruned, examples_val, atrbs, classes, name_dataset, atrib_orig);
+		//System.out.printf("Poda | Acuracia na validacao: %.1f%%%n" , acuracia.getAccuracy());
+		acuraciaValidacao.add(acuracia.getAccuracy());
+		System.out.println("Poda:");
 		//tree_pruned.display(spaces);
 
 		/*
 		// 6-2. RULE POST PRUNING
 		// set the pruning approach to rule post-pruning
-		tree.setPruneApproach("rule post-pruning");
+		arvr.setPruneApproach("rule post-pruning");
 
-		tree.resetRules();
-		tree.deriveRules();
-		ArrayList<Rule> rules = tree.getRules();
-		// initialize rules' scores to accuracy over validation set
-		for (Rule r: rules){
-			r.assignScore(examples_val, attrs_orig);
+		arvr.resetRules();
+		arvr.deriveRules();
+		ArrayList<Regra> regr = arvr.getRules();
+		// initialize regr' scores to accuracy over validation set
+		for (Regra r: regr){
+			r.assignScore(examples_val, atrib_orig);
 //			r.setScore(acc_val);
 			r.setScore(acc_val + Math.random());
 //			System.out.println(r.getScore()); 
 		}
 
 		// Compute the majority of class targets for the default target value
-		String target_default = getMajorityAdult(examples_train);
-		//tree.displayRules();
-		ArrayList<Rule> pruned_rules = tree.prune_RulePostPruning(examples_train, examples_val, rules, attrs, classes, name_dataset, attrs_orig, acc_val, target_default, noise);
+		String target_default = majoraAdult(examples_train);
+		//arvr.displayRules();
+		ArrayList<Regra> pruned_rules = arvr.prune_RulePostPruning(examples_train, examples_val, regr, atrbs, classes, name_dataset, atrib_orig, acc_val, target_default, noise);
 
-		predictor = new Predictor(pruned_rules, examples_test, attrs_orig, target_default);
-		System.out.printf("%nThe accuracy of pruned tree over test data is %.1f%%%n" , predictor.getAccuracy());
+		acuracia = new Acuracia(pruned_rules, examples_test, atrib_orig, target_default);
+		System.out.printf("%nThe accuracy of pruned arvr over test data is %.1f%%%n" , acuracia.getAccuracy());
 
-		predictor = new Predictor(pruned_rules, examples_train, attrs_orig, target_default);
-		System.out.printf("The accuracy of pruned tree over train data is %.1f%%%n" , predictor.getAccuracy());
+		acuracia = new Acuracia(pruned_rules, examples_train, atrib_orig, target_default);
+		System.out.printf("The accuracy of pruned arvr over train data is %.1f%%%n" , acuracia.getAccuracy());
 
-		predictor = new Predictor(pruned_rules, examples_val, attrs_orig, target_default);
-		System.out.printf("The accuracy of pruned tree over validation data is %.1f%%%n" , predictor.getAccuracy());
+		acuracia = new Acuracia(pruned_rules, examples_val, atrib_orig, target_default);
+		System.out.printf("The accuracy of pruned arvr over validation data is %.1f%%%n" , acuracia.getAccuracy());
 
-		System.out.println("Pruned Rule Set:");
-		printRules(pruned_rules);
+		System.out.println("Pruned Regra Set:");
+		//printRegras(pruned_rules);
 		*/
-		return tree;
+		return arvr;
 	}
 	
 	
-	private static void printRules(ArrayList<Rule> rules) {
+	private static void printRegras(ArrayList<Regra> regr) {
 
-		for (Rule r : rules) {
+		for (Regra r : regr) {
 
 			for (int i = 0; i < r.size() - 1; i = i + 2) {
 
@@ -373,43 +302,18 @@ public class Main {
 		}
 	}
 
-	private static void preprocess_Iris(List<Exp> examples) {
-		attr_vals.clear();
-		ArrayList<String> attrs_tmp = new ArrayList<String>();
-		// DISCRETIZE THE CONTINUOUS ATTRIBUTES
-		for (int i = 0; i < attrs.length; i++){
 
-			// 1. SORT EXAMPLES w.r.t. EACH ATTRIBUTE A (one at a time) (e.g. sepal-length)
-			List<Exp> examples_sorted = sort(examples, i);
 
-			// 2. FIND c THRESHOLDS FOR THE ATTRIBUTE A
-			Set<Double> c = find_c(examples_sorted, i);
-
-			// 3. FORM NEW DISCRETE ATTRIBUTES (e.g. sepal-length < 5.0)
-			attrs_tmp.addAll(formAttributes(c, i));
-
-			// 4. ADD THE ATTRIBUTE WITH ITS VALUES TO OUR KNOWLEDGE (e.g. attr_vals or attrs)
-			//    The values for each discretized attribute A is now true or false 
-			updateAttributes(attrs_tmp);
-
-		}
-		// 5. ADD ALL NEWLY FORMED ATTRIBUTES TO OUR KNOWLEDGE
-		updateAttributes();
-
-		//printExamples(examples);
-
-	}
-
-	private static void preprocess_Adult(List<Exp> examples) {
-		//remove os valores continuos de attr_vals para poder inserir eles discretizados
+	private static void preprocess_Adult(List<Dados> examples) {
+		//remove os valores continuos de atrib_val para poder inserir eles discretizados
 		HashMap<String, ArrayList<String>> attr_vals_temp = new HashMap<String, ArrayList<String>>();
-		attr_vals_temp.putAll(attr_vals);
+		attr_vals_temp.putAll(atrib_val);
 		Iterator it = attr_vals_temp.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry pair = (Map.Entry)it.next(); 
 			ArrayList<String> s = (ArrayList) pair.getValue();
 			if(s.get(0).equals("continuous")){
-				attr_vals.remove(pair.getKey());//, pair.getValue());
+				atrib_val.remove(pair.getKey());//, pair.getValue());
 			}
 			it.remove(); // avoids a ConcurrentModificationException
 		}
@@ -424,25 +328,20 @@ public class Main {
 		System.out.println("começando a ordenar");
 		long tempoIni = System.currentTimeMillis();
 
-		for (int i = 0; i < attrs.length; i++){
+		for (int i = 0; i < atrbs.length; i++){
 			if( (i==0) || 
 					(i==2) ||
 					(i==4) ||
 					(i==10) ||
 					(i==11) ||
-					(i==12) ){
-				// 1. SORT EXAMPLES w.r.t. EACH ATTRIBUTE A (one at a time) (e.g. sepal-length)		
-				List<Exp> examples_sorted = sort(examples, i);
+					(i==12) ){	
+				List<Dados> examples_sorted = sort(examples, i);
 
-				// 2. FIND c THRESHOLDS FOR THE ATTRIBUTE A
 				Set<Double> c = find_c(examples_sorted, i);
 
 				c = bestThreshold(examples_sorted, i, c);
-				// 3. FORM NEW DISCRETE ATTRIBUTES (e.g. sepal-length < 5.0)
 				attrs_tmp.addAll(formAttributes(c, i));
 
-				// 4. ADD THE ATTRIBUTE WITH ITS VALUES TO OUR KNOWLEDGE (e.g. attr_vals or attrs)
-				//    The values for each discretized attribute A is now true or false 
 				updateAttributes(attrs_tmp);
 			}
 		}
@@ -450,20 +349,17 @@ public class Main {
 		long tempoFim = System.currentTimeMillis();
 		System.out.println("tempo para ordenar: " + (tempoFim-tempoIni)/1000);
 
-		// 5. ADD ALL NEWLY FORMED ATTRIBUTES TO OUR KNOWLEDGE
 		updateAttributes();
-
-		//printExamples(examples);
 
 	}
 
 
 	private static void updateAttributes() {
-		Iterator<String> itr = attr_vals.keySet().iterator();
-		attrs = new String[attr_vals.size()];
+		Iterator<String> itr = atrib_val.keySet().iterator();
+		atrbs = new String[atrib_val.size()];
 		int i = 0;
 		while (itr.hasNext()){
-			attrs[i] = itr.next();
+			atrbs[i] = itr.next();
 			i++;
 		}
 	}
@@ -475,17 +371,14 @@ public class Main {
 		for (int i = 0; i < attrs_tmp.size(); i++){
 			vals = new ArrayList<String>();
 			vals.add("true"); vals.add("false");
-			attr_vals.put(attrs_tmp.get(i), vals);
+			atrib_val.put(attrs_tmp.get(i), vals);
 
 		}
 
 	}
 
 	private static ArrayList<String> formAttributes(Set<Double> c, int i) {
-		// takes a set of numbers representing thresholds over i-th attribute of the original data
-		// [ 4.3, 5.9,...] over sepal-length
-
-		String attr_label = attrs[i]; // e.g. sepal-length
+		String attr_label = atrbs[i]; 
 		String tmp;
 		ArrayList<String> attrs_tmp = new ArrayList<String>();
 
@@ -500,18 +393,15 @@ public class Main {
 		return attrs_tmp;
 	}
 
-	private static Set<Double> find_c(List<Exp> examples, int idx) {
-		// pinpoint thresholds on which the target value switches
-
+	private static Set<Double> find_c(List<Dados> examples, int idx) {
 		Set<Double> c = new HashSet<Double>();
-		//DecimalFormat dec_form = new DecimalFormat("0.##");
 
 		String sentinel = examples.get(0).getTarget();
 		for (int i = 0; i <examples.size(); i++){
 			if (!examples.get(i).getTarget().equals(sentinel)){
 				double tmp = ((Double.valueOf(examples.get(i - 1).get(idx)) + Double.valueOf(examples.get(i).get(idx))) / 2);
 
-				tmp = Double.valueOf(tmp);//dec_form.format(tmp));
+				tmp = Double.valueOf(tmp);
 
 				c.add(tmp);
 				sentinel = examples.get(i).getTarget();
@@ -521,10 +411,10 @@ public class Main {
 	}
 
 
-	private static List<Exp> cleanMissingValues(List<Exp> examples) {
+	private static List<Dados> cleanMissingValues(List<Dados> examples) {
 		int count = 0;
 		System.out.println("Quantidade de exemplos: " + examples.size());
-		Iterator<Exp> itr = examples.iterator();
+		Iterator<Dados> itr = examples.iterator();
 		while(itr.hasNext()){
 			String [] data = itr.next().getData();
 			for(int j = 0; j < data.length; j++){
@@ -540,24 +430,17 @@ public class Main {
 		return examples;
 	}
 
-	private static List<Exp> sort(List<Exp> examples, int a) {
-		// sort all examples with respect to attribute A
+	private static List<Dados> sort(List<Dados> examples, int a) {
 		for (int i = 0; i < examples.size(); i++){
 			if (i < examples.size() - 1){
 				for (int j = i + 1; j < examples.size(); j++){
 					Double candidate1 = Double.valueOf(examples.get(i).getData()[a]);
 					Double candidate2 = Double.valueOf(examples.get(j).getData()[a]);
-					//System.out.printf("%s, ", examples.get(i).getData()[a]);
-					//System.out.printf("%s%n", examples.get(j).getData()[a]);
 
-					// compare two examples (-1/1 for less/greater than, and 0 for equals to)
 					if (candidate1 > candidate2) {
 
-						// swap examples
 						examples = swap (examples, i, j);
 
-						//System.out.printf("%s, ", examples.get(i).getData()[a]);
-						//System.out.printf("%s%n", examples.get(j).getData()[a]);
 					}
 				}
 			}
@@ -567,12 +450,12 @@ public class Main {
 	}
 
 
-	private static String getMajorityAdult(List<Exp> examples) {
+	private static String majoraAdult(List<Dados> examples) {
 
 		int[] counter = new int[classes.length];
 
-		for (Exp exp: examples){
-			switch (exp.getTarget()) {
+		for (Dados exemp: examples){
+			switch (exemp.getTarget()) {
 			case ">50K":
 				counter[0]++;
 				break;
@@ -584,7 +467,6 @@ public class Main {
 			}
 		}
 
-		// find the max
 		int max = Integer.MIN_VALUE, idx = 0;
 		for (int i = 0; i < counter.length - 1; i++){
 			if ( counter[i] >= max){
@@ -593,13 +475,13 @@ public class Main {
 			}
 		}
 
-		String t = replaceAdult(idx);
+		String t = trocaAdult(idx);
 
 		return t;
 	}
 
 
-	private static String replaceAdult(int i) {
+	private static String trocaAdult(int i) {
 
 		String output = "noun";
 
@@ -619,7 +501,7 @@ public class Main {
 	}
 
 	private static void setAttrs_size(int i) {
-		attrs_size = i;
+		tamnho_atrib = i;
 
 	}
 
@@ -628,13 +510,10 @@ public class Main {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static Pair<List<Exp>, List<Exp>> split_into_train_val(List<Exp> examples, double ratio) {
-		// split the training data into two sections
-		// the hold-out (10%) set and the training (90%) set itself
-
+	private static Conjunto<List<Dados>, List<Dados>> split_into_train_val(List<Dados> examples, double ratio) {
 		int sz = examples.size(); int thr = (int) (sz * ratio);
-		List<Exp> train_set = new ArrayList<Exp>();
-		List<Exp> validation_set = new ArrayList<Exp>();
+		List<Dados> train_set = new ArrayList<Dados>();
+		List<Dados> validation_set = new ArrayList<Dados>();
 
 		if (thr != 0){
 			for (int i = 0; i < thr; i++){
@@ -644,18 +523,16 @@ public class Main {
 			for (int i = thr; i < sz; i++){
 				validation_set.add(examples.get(i));
 			}
-			Pair<List<Exp>, List<Exp>> output = new Pair(train_set, validation_set);
+			Conjunto<List<Dados>, List<Dados>> output = new Conjunto(train_set, validation_set);
 			return output;
 		}else{
-			Pair<List<Exp>, List<Exp>> output = new Pair(examples, examples);
+			Conjunto<List<Dados>, List<Dados>> output = new Conjunto(examples, examples);
 			return output;
 		}
-
-
 	}
 
-	private static List<Exp> swap(List<Exp> examples, int i, int j) {
-		Exp tmp = new Exp(examples.get(0).getData().length);
+	private static List<Dados> swap(List<Dados> examples, int i, int j) {
+		Dados tmp = new Dados(examples.get(0).getData().length);
 		tmp = examples.get(i).clone();
 		examples.set(i, examples.get(j).clone());
 		examples.set(j, tmp);
@@ -663,23 +540,16 @@ public class Main {
 		return examples;
 	}
 
-	private static List<Exp> readExamples(String filepath) throws FileNotFoundException, IOException {
-		// reads input txt file line by line
-		// every line contains a row of a value for all possible attributes plus a target class at the end.
-		// Exp is a class containing only one example. (line)
-		// we have an array of Exp comprises with the entire training dataset.
-
-		List<Exp> examples = new ArrayList<Exp>();
+	private static List<Dados> readExamples(String filepath) throws FileNotFoundException, IOException {
+		List<Dados> examples = new ArrayList<Dados>();
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
 			String line = reader.readLine();
 
 			while (line != null){
 
-				// create an example
-				Exp e = new Exp(line, attrs.length);
+				Dados e = new Dados(line, atrbs.length);
 
-				// add an example to the list
 				examples.add(e);
 
 				line = reader.readLine();
@@ -691,23 +561,12 @@ public class Main {
 	}
 
 	private static void readAttributes(String filepath) throws FileNotFoundException, IOException {
-		// reads input txt file line by line
-		// There are 4 attributes: Outlook, Temperature, Humidity, Wind, plus target PlayTennis
-
-		// Outlook Sunny Overcast Rain
-		// Temperature Hot Mild Cool
-		// Humidity High Normal
-		// Wind Weak Strong
-
-		// PlayTennis Yes No
-
-		attrs = new String[attrs_size];
+		atrbs = new String[tamnho_atrib];
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
 			String line = reader.readLine();
 			int counter = 0;
 
-			// read the first 4 lines
 			while (!line.isEmpty()){
 
 				String[] tmp = line.split(" ");
@@ -717,31 +576,26 @@ public class Main {
 					tmp_vals.add(tmp[i]);
 				}
 
-				attr_vals.put(tmp[0], tmp_vals);
+				atrib_val.put(tmp[0], tmp_vals);
 
-				attrs[counter] = tmp[0];
+				atrbs[counter] = tmp[0];
 
 				counter++;
 
 				line = reader.readLine();
 			}
 
-			// now read PlayTennis Yes No
 			line = reader.readLine();
 			String[] tmp = line.split(" ");
 			classes = new int[tmp.length - 1];
 			for (int i = 0; i < classes.length; i++){
 				classes[i] = i;
 			}
-			// classes contains 0 or 1 for tennis dataset meanning yes or no
-			// classes contains 0, 1, or 2 for iris dataset meaning setosa versicolor virginica
-
 		}
 
 	}
 
-	private static Set<Double> bestThreshold(List<Exp> S, int idx, Set<Double> c) {
-		// The entropy for the entire set S before being partitioned
+	private static Set<Double> bestThreshold(List<Dados> S, int idx, Set<Double> c) {
 		String[] temp_c = new String[c.size()];
 		int i = 0;
 		for(Double d: c){
@@ -749,8 +603,8 @@ public class Main {
 			i++;
 		}
 
-		int[] Target_attributes = {0,1}; // >50K <=50K
-		double entropy_S = cal_entropyAdult(S, Target_attributes);
+		int[] Target_attributes = {0,1}; 
+		double entropy_S = entropiaAdult(S, Target_attributes);
 
 		double S_size = S.size();
 
@@ -758,48 +612,36 @@ public class Main {
 
 		String best_attribute = "";
 
-		// Expected value of the entropy after S is partitioned using attr A
-		// for each attr A calculate the entropy and subtract it from S's entropy
-		//String attr = attrs[idx];
 		for (String attr: temp_c){
 
 			double sigma = 0.0;
 
-			//Iterator itr = temp_c.iterator();
-			//while (itr.hasNext()){
 			i = 0;
 			String[] itr = {"true", "false"};
 			while(i<itr.length) {
 
-				// 1. count the number of examples whose attribute "attr" has the value v
 				String v = itr[i];
-				List<Exp> S_v = derive_examplesAdult(S,attrs[idx]+"<="+ attr, v);
+				List<Dados> S_v = deriva_Adult(S,atrbs[idx]+"<="+ attr, v);
 
 				double Sv_size = S_v.size();
 
-				// 2. calculate |S_v| / |S|
 				double ratio = Sv_size / S_size;
 
-				// 3. calculate (|S_v| / |S|) * entropy(Sv)
 				double entropy_Sv = 0;
 				if (ratio == 0){
 					entropy_Sv = 0;
 				}else{
 
-					entropy_Sv = cal_entropyAdult(S_v, Target_attributes);
+					entropy_Sv = entropiaAdult(S_v, Target_attributes);
 				}
-				// 4. calculate SIGMA [(|S_v| / |S|) * entropy(Sv)]
 				sigma+= - ratio * entropy_Sv;
 
 				i++;
 			}
 
-			// calculate Gain (S, A)
-			// Gain(S, A) = entropy(S) - SIGMA [(|S_v| / |S|) * entropy(Sv)]
 			gain = entropy_S + sigma;
 			if (gain > max){
 				max = gain;
-				// keep this attribute. It's gain is the maximum amonge all attributes.
 				best_attribute = attr;
 			}
 		}
@@ -811,29 +653,24 @@ public class Main {
 		return best_threshold;
 	}
 
-	private static double cal_entropyAdult(List<Exp> S, int[] Target_attributes){
-		// Measure the impurity in collection S
-
-		// count each target attribute's value
+	private static double entropiaAdult(List<Dados> S, int[] Target_attributes){
 		int[] counter = new int[Target_attributes.length];
 
 		for (int i = 0; i < counter.length; i++){
 
-			for (Exp exp: S){
-				if (exp.getTarget().equals(replaceAdult(i))){
+			for (Dados exemp: S){
+				if (exemp.getTarget().equals(trocaAdult(i))){
 					counter[i]++;
 				}
 			}
 		}
 
-		// find the ratio of each target attr's value
 		double[] p = new double[Target_attributes.length];
 
 		for (int i = 0; i < counter.length; i++){
 			p[i] = counter[i]/(double) S.size();
 		}
 
-		// sum up all p's given the formula Entropy(S) = SUMoverClasses(- p * log(p))
 		double sum = 0.0;
 		for (int i = 0; i < p.length; i++){
 			if (p[i] != 0){
@@ -844,40 +681,32 @@ public class Main {
 		return sum;
 	}
 
-	private static List<Exp> derive_examplesAdult(List<Exp> S, String A, String v) {
-		// count the number of examples whose attribute "attr" has the value v
-		// v is implied in each iteration using iterator
-
-		List<Exp> tmp = new ArrayList<Exp>();
-
-		// find the index of attr in global Attributes.
+	private static List<Dados> deriva_Adult(List<Dados> S, String A, String v) {
+		List<Dados> tmp = new ArrayList<Dados>();
 
 		int idx;
-		if (A.contains("<=")){//se for continuo
-			idx = Arrays.asList(attrs_orig).indexOf(A.split("<=")[0]);
+		if (A.contains("<=")){
+			idx = Arrays.asList(atrib_orig).indexOf(A.split("<=")[0]);
 
-			// for A: sepal-length<=6.9 return 6.9 as thr	
 			Double thr = Double.valueOf(A.split("<=")[1]);
 
-			//int comparable = v.equals("true")?
-
-			for (Exp exp: S){
+			for (Dados exemp: S){
 				if (v.equals("true")){
-					if (Double.valueOf(exp.get(idx)) <= thr){
-						tmp.add(exp);
+					if (Double.valueOf(exemp.get(idx)) <= thr){
+						tmp.add(exemp);
 					}
 				}else{
-					if (Double.valueOf(exp.get(idx)) > thr){
-						tmp.add(exp);
+					if (Double.valueOf(exemp.get(idx)) > thr){
+						tmp.add(exemp);
 					}
 				}
 			}
-		}else { //se for discreto
-			idx = Arrays.asList(attrs_orig).indexOf(A);
+		}else { 
+			idx = Arrays.asList(atrib_orig).indexOf(A);
 
-			for (Exp exp: S){
-				if (v.equals(String.valueOf(Double.valueOf(exp.get(idx))))){
-					tmp.add(exp);
+			for (Dados exemp: S){
+				if (v.equals(String.valueOf(Double.valueOf(exemp.get(idx))))){
+					tmp.add(exemp);
 				}
 			}
 		}
@@ -886,11 +715,11 @@ public class Main {
 		return tmp;
 	}
 
-	public static void random(List<Exp> Examples, int fold) {
+	public static void random(List<Dados> Examples, int fold) {
 		int r = fold;
 		Integer[] arr = new Integer[Examples.size()];
-		List<List<Exp>> train = new ArrayList<List<Exp>>(r);
-		List<List<Exp>> val = new ArrayList<List<Exp>>(r);
+		List<List<Dados>> train = new ArrayList<List<Dados>>(r);
+		List<List<Dados>> val = new ArrayList<List<Dados>>(r);
 
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = i;
@@ -903,8 +732,8 @@ public class Main {
 
 		int qtd = Examples.size()/r;
 
-		List<Exp> temptrain = new ArrayList<Exp>();
-		List<Exp> tempval = new ArrayList<Exp>();
+		List<Dados> temptrain = new ArrayList<Dados>();
+		List<Dados> tempval = new ArrayList<Dados>();
 
 		int linhaTrain =0;
 		int linhaVal =0;
