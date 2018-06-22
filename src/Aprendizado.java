@@ -19,7 +19,7 @@ public class Aprendizado {
 		setOriginalAttributes(atrib_orig);
 		Atrib_sA = getAttributes();
 		this.Examples_test = Test;
-		
+		printAtribGain(Examples, Target_attributes, Atributos);
 		arvr = train(Examples, Target_attributes,Atrib_sA);
 
 		arvr.setAttribute(this.getAttributes());
@@ -186,12 +186,58 @@ public class Aprendizado {
 				max = gain;
 				best_attribute = attr;
 			}
-			System.out.println("atributo: " + attr + " ganho: " + gain);
+			//System.out.println("atributo: " + attr + " ganho: " + gain);
 		}
 
 		return best_attribute;
 	}
 
+	
+	public String printAtribGain(List<Dados> S, int[] Target_attributes, String[] Atributos) {
+
+		double entropy_S = faz_entropia(S, Target_attributes);
+
+		double S_size = S.size();
+
+		double gain = 0.0, max = -Double.MAX_VALUE;
+
+		String best_attribute = "";
+
+		for (String attr: Atributos){
+
+			double sigma = 0.0;
+
+			Iterator itr = atrib_val.get(attr).iterator();
+			while (itr.hasNext()){
+
+				String v = (String) itr.next();
+				List<Dados> S_v = deriva_exemp(S, attr, v);
+
+				double Sv_size = S_v.size();
+
+				double ratio = Sv_size / S_size;
+
+				double entropy_Sv = 0;
+				if (ratio == 0){
+					entropy_Sv = 0;
+				}else{
+
+					entropy_Sv = faz_entropia(S_v, Target_attributes);
+				}
+				sigma+= - ratio * entropy_Sv;
+
+			}
+
+			gain = entropy_S + sigma;
+			if (gain > max){
+				max = gain;
+				best_attribute = attr;
+			}
+			System.out.println("atributo: " + attr + " ganho: " + gain);
+		}
+
+		return best_attribute;
+	}
 
 	private List<Dados> deriva_exemp(List<Dados> S, String A, String v) {
 		List<Dados> tmp = new ArrayList<Dados>();

@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -170,12 +174,14 @@ public class Main {
 			System.out.printf("Acuracia no treinamento: %.1f%%%n%n" , acuracia.getAccuracy());
 			
 			acuracia = new Acuracia (arvr, examples_test, atrbs, classes, name_dataset, atrib_orig);
+			System.out.printf("Acuracia no teste: %.1f%%%n%n" , acuracia.getAccuracy());			
+			//arvr.display(spaces);
+
+			acuracia = new Acuracia (arvr, examples_test, atrbs, classes, name_dataset, atrib_orig);
 			System.out.printf("Acuracia no teste: %.1f%%%n%n" , acuracia.getAccuracy());
 			
-			arvr.display(spaces);
-
-			System.out.printf("-------------%nRegras:%n");
-			arvr.displayRules();
+			//System.out.printf("-------------%nRegras:%n");
+			//arvr.displayRules();
 
 		}
 		System.out.println("Total de nós antes da poda " + arvr.displayCount(spaces));
@@ -187,6 +193,7 @@ public class Main {
 				System.out.println("");
 				System.out.println("Primeira poda....................");
 				System.out.println("Total de nós antes da poda " + arvr.displayCount(spaces));
+				int totalDeNosAntesPoda = arvr.displayCount(spaces);
 				//acuracia em validation
 				Acuracia acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
 				double acuraciaValidation = acuracia.getAccuracy();
@@ -196,11 +203,40 @@ public class Main {
 					numNo = arvr.displayCount(spaces);
 					acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
 					arvr = podaArvoreAdult(arvr, examples_val, name_dataset, examples_train, examples_test, spaces);
-					System.out.println("Total de nós depois da poda" + arvr.displayCount(spaces));
+					//System.out.print("Total de nós depois da poda" + arvr.displayCount(spaces));
+					System.out.print(arvr.displayCount(spaces) + " ");
+					if(numNo%100 ==0){
+						System.out.println(" ");
+					}
 					//System.out.println("Total de nós " + arvr.displayCount(spaces));
 					acuraciaValidation = acuracia.getAccuracy();
 					
 				}
+				
+				if(acuraciaTreinamento.size()==acuraciaTeste.size() && acuraciaTeste.size()==acuraciaValidacao.size() && acuraciaValidacao.size()>0) {
+					//Iterator<Double> itr = acuraciaTreinamento.iterator();
+					BufferedWriter writer = null;
+					try {
+						File logFile = new File("logs_acuracia" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + ".csv");
+						System.out.println(logFile.getCanonicalPath());
+						writer = new BufferedWriter(new FileWriter(logFile));
+						writer.write("Total de Nós; Treinamento;Teste;Validação");
+						writer.newLine();
+						for(int i = 0; i < acuraciaTreinamento.size(); i++){
+							writer.write(totalDeNosAntesPoda-- + ";" + acuraciaTreinamento.get(i) + ";" + acuraciaTeste.get(i) + ";" + acuraciaValidacao.get(i)+ "");
+							writer.newLine();
+						}
+					} catch (Exception e) {
+			            e.printStackTrace();
+			        } finally {
+			            try {
+			                // Close the writer regardless of what happens...
+			                writer.close();
+			            } catch (Exception e) {
+			            }
+			        }
+				}
+				System.out.println("Fim da poda...........");
 				
 			}
 		}
@@ -232,7 +268,7 @@ public class Main {
 	private static Arvore podaArvoreAdult(Arvore arvr, List<Dados> examples_val, String name_dataset, List<Dados> examples_train, List<Dados> examples_test, int spaces) throws CloneNotSupportedException{
 		boolean noise = false;
 		Acuracia acuracia = new Acuracia (arvr, examples_val, atrbs, classes, name_dataset, atrib_orig);
-		System.out.printf("Acuracia na validacao %.1f%%%n" , acuracia.getAccuracy());
+		//System.out.printf("Acuracia na validacao %.1f%%%n" , acuracia.getAccuracy());
 
 		double acc_val = acuracia.getAccuracy();
 
@@ -248,7 +284,7 @@ public class Main {
 		acuracia = new Acuracia (tree_pruned, examples_val, atrbs, classes, name_dataset, atrib_orig);
 		//System.out.printf("Poda | Acuracia na validacao: %.1f%%%n" , acuracia.getAccuracy());
 		acuraciaValidacao.add(acuracia.getAccuracy());
-		System.out.println("Poda:");
+		//System.out.println("Poda:");
 		//tree_pruned.display(spaces);
 
 		/*
