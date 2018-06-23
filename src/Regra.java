@@ -8,7 +8,16 @@ public class Regra implements Comparable<Regra>{
 	private ArrayList<String> condic;
 	private String target;
 	private double score;
+	private double num_matched_exp_global;
 	
+	public double getNum_matched_exp_global() {
+		return num_matched_exp_global;
+	}
+
+	public void setNum_matched_exp_global(double num_matched_exp_global) {
+		this.num_matched_exp_global = num_matched_exp_global;
+	}
+
 	Regra(ArrayList<String> pre, String t, double s){
 		this.setPreconditions(pre);
 		this.setTarget(t);
@@ -99,7 +108,8 @@ public class Regra implements Comparable<Regra>{
 		score = acc/(num_matched_exp);
 		score = num_matched_exp == 0? 0 : score;
 
-		score = num_matched_exp / examples.size();
+		//score = num_matched_exp / examples.size();
+		num_matched_exp_global = num_matched_exp;
 		this.setScore(score);	
 	}
 

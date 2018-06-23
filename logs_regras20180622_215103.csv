@@ -1,0 +1,706 @@
+0.010380622837370242;3.0;marital-status = Divorced ^ education = Masters ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Prof-school ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = 12th ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = 11th ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = 10th ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Preschool ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = 1st-4th ^  => <=50K
+0.05536332179930796;16.0;marital-status = Divorced ^ education = Some-college ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = 9th ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = 5th-6th ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = Doctorate ^  => >50K
+0.020761245674740483;6.0;marital-status = Divorced ^ education = Assoc-voc ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = Assoc-acdm ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Never-worked ^  => <=50K
+0.006920415224913495;2.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Self-emp-inc ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Federal-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Local-gov ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Craft-repair ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Priv-house-serv ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Own-child ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Husband ^  => >50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Not-in-family ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Wife ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Unmarried ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Exec-managerial ^ relationship = Other-relative ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Protective-serv ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Sales ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Tech-support ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Own-child ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Husband ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = Asian-Pac-Islander ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Holand-Netherlands ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Yugoslavia ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Poland ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = true ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = true ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = false ^ hours-per-week<=35.0 = true ^  => >50K
+0.0034602076124567475;1.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = false ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Female ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = United-States ^ sex = Male ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = India ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Cuba ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = White ^ native-country = Germany ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Not-in-family ^ race = Other ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Wife ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Unmarried ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Prof-specialty ^ relationship = Other-relative ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Other-service ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Adm-clerical ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Private ^ occupation = Transport-moving ^  => >50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Without-pay ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = Bachelors ^ workclass = State-gov ^  => <=50K
+0.03806228373702422;11.0;marital-status = Divorced ^ education = HS-grad ^  => <=50K
+0.0;0.0;marital-status = Divorced ^ education = 7th-8th ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Craft-repair ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Handlers-cleaners ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Priv-house-serv ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Exec-managerial ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Protective-serv ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Sales ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Tech-support ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Prof-specialty ^  => <=50K
+0.0;0.0;marital-status = Widowed ^ occupation = Machine-op-inspct ^  => <=50K
+0.006920415224913495;2.0;marital-status = Widowed ^ occupation = Other-service ^  => <=50K
+0.006920415224913495;2.0;marital-status = Widowed ^ occupation = Adm-clerical ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Widowed ^ occupation = Transport-moving ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-spouse-absent ^  => <=50K
+0.02768166089965398;8.0;marital-status = Separated ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Priv-house-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Never-worked ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Self-emp-inc ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Local-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Private ^ sex = Female ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Private ^ sex = Male ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Without-pay ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = Self-emp-not-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Exec-managerial ^ workclass = State-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Protective-serv ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Sales ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Tech-support ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Self-emp-inc ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Federal-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Local-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Own-child ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = Asian-Pac-Islander ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Holand-Netherlands ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Yugoslavia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Poland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Female ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = false ^ hours-per-week<=35.0 = true ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = United-States ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = India ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Cuba ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = White ^ native-country = Germany ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Husband ^ race = Other ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Not-in-family ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Wife ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Unmarried ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Private ^ relationship = Other-relative ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Without-pay ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Prof-specialty ^ workclass = State-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Other-service ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Adm-clerical ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Masters ^ occupation = Transport-moving ^  => >50K
+0.01384083044982699;4.0;marital-status = Married-civ-spouse ^ education = Prof-school ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 12th ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Farming-fishing ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Priv-house-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Exec-managerial ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Protective-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Sales ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Tech-support ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Prof-specialty ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Other-service ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 11th ^ occupation = Transport-moving ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 10th ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Preschool ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 1st-4th ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Never-worked ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = true ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Craft-repair ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Priv-house-serv ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Exec-managerial ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Protective-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Sales ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Tech-support ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Prof-specialty ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Other-service ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Adm-clerical ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-inc ^ age<=28.0 = false ^ occupation = Transport-moving ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Federal-gov ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Priv-house-serv ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Exec-managerial ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Protective-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Sales ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Tech-support ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Prof-specialty ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Machine-op-inspct ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Other-service ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Adm-clerical ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Local-gov ^ occupation = Transport-moving ^  => <=50K
+0.010380622837370242;3.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Priv-house-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Exec-managerial ^ race = Amer-Indian-Eskimo ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Exec-managerial ^ race = Asian-Pac-Islander ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Exec-managerial ^ race = White ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Exec-managerial ^ race = Black ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Exec-managerial ^ race = Other ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Protective-serv ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Sales ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Tech-support ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Prof-specialty ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Machine-op-inspct ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Other-service ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = Amer-Indian-Eskimo ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = Asian-Pac-Islander ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = White ^ sex = Female ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = White ^ sex = Male ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = Black ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Adm-clerical ^ race = Other ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = true ^ occupation = Transport-moving ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Private ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Without-pay ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Some-college ^ workclass = State-gov ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 9th ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 5th-6th ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Doctorate ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Local-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Private ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Without-pay ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = Self-emp-not-inc ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Craft-repair ^ workclass = State-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Priv-house-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Exec-managerial ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Protective-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Sales ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Female ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = Asian-Pac-Islander ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Holand-Netherlands ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Yugoslavia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Poland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Local-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Own-child ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Husband ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Not-in-family ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Wife ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Unmarried ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Private ^ age<=28.0 = false ^ hours-per-week<=35.0 = false ^ relationship = Other-relative ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Without-pay ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = Self-emp-not-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = true ^ workclass = State-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = true ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = United-States ^ education-num<=12.0 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = India ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Cuba ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = White ^ native-country = Germany ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Tech-support ^ sex = Male ^ race = Other ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Prof-specialty ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Machine-op-inspct ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Other-service ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-voc ^ occupation = Transport-moving ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Priv-house-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Exec-managerial ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Protective-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Sales ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Tech-support ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Prof-specialty ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Other-service ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Assoc-acdm ^ occupation = Transport-moving ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Craft-repair ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Farming-fishing ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Handlers-cleaners ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Priv-house-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = true ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Local-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Holand-Netherlands ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Yugoslavia ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Poland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Own-child ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = Asian-Pac-Islander ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = White ^ sex = Female ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = White ^ sex = Male ^ education-num<=12.0 = true ^  => >50K
+0.01730103806228374;5.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Husband ^ race = Other ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Not-in-family ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Wife ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Unmarried ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = United-States ^ age<=28.0 = false ^ relationship = Other-relative ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = India ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Cuba ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = true ^ native-country = Germany ^  => >50K
+0.010380622837370242;3.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Private ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Without-pay ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = Self-emp-not-inc ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Exec-managerial ^ hours-per-week<=35.0 = false ^ workclass = State-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Armed-Forces ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Protective-serv ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Never-worked ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Self-emp-inc ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Local-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Holand-Netherlands ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Yugoslavia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Poland ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = United-States ^ capital-gain<=5095.5 = true ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = United-States ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = India ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Cuba ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Private ^ hours-per-week<=35.0 = false ^ native-country = Germany ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Without-pay ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = Self-emp-not-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Sales ^ workclass = State-gov ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Tech-support ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Haiti ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Hong ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Cambodia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Holand-Netherlands ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = England ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Scotland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Thailand ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Portugal ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Greece ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Vietnam ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Yugoslavia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Iran ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = China ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Ireland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Poland ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Guatemala ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = El-Salvador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = France ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Laos ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Ecuador ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Trinadad&Tobago ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Hungary ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Japan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Philippines ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Federal-gov ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Local-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = true ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = Asian-Pac-Islander ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Female ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = true ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Own-child ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Husband ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Not-in-family ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Wife ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Unmarried ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = true ^ hours-per-week<=35.0 = false ^ relationship = Other-relative ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = true ^ capital-loss<=1881.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = White ^ sex = Male ^ education-num<=12.0 = false ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = true ^ race = Other ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Private ^ age<=28.0 = false ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Without-pay ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = Self-emp-not-inc ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = United-States ^ workclass = State-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = South ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Puerto-Rico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = India ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Canada ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Cuba ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Columbia ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Nicaragua ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Dominican-Republic ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Taiwan ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Honduras ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Italy ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Mexico ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Outlying-US(Guam-USVI-etc) ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Jamaica ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Peru ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Prof-specialty ^ native-country = Germany ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Machine-op-inspct ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Other-service ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = Bachelors ^ occupation = Transport-moving ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = true ^ race = Amer-Indian-Eskimo ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = true ^ race = Asian-Pac-Islander ^  => <=50K
+0.031141868512110725;9.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = true ^ race = White ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = true ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = true ^ race = Other ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Craft-repair ^ capital-gain<=5095.5 = false ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Priv-house-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Never-worked ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Federal-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Local-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Private ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Without-pay ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Exec-managerial ^ workclass = State-gov ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Protective-serv ^ age<=28.0 = true ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Protective-serv ^ age<=28.0 = false ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Never-worked ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Federal-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Local-gov ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Private ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Without-pay ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Sales ^ workclass = State-gov ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Tech-support ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Prof-specialty ^  => <=50K
+0.010380622837370242;3.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Machine-op-inspct ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Haiti ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Hong ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Cambodia ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Holand-Netherlands ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = England ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Scotland ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Thailand ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Portugal ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Greece ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Vietnam ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Yugoslavia ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Iran ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = China ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Ireland ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Poland ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Guatemala ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = El-Salvador ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = France ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Laos ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Ecuador ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Trinadad&Tobago ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Hungary ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Japan ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Philippines ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = United-States ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = South ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Puerto-Rico ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = India ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Canada ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Cuba ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Columbia ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Nicaragua ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Dominican-Republic ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Taiwan ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Honduras ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Italy ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Mexico ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Outlying-US(Guam-USVI-etc) ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Jamaica ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Peru ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Other-service ^ native-country = Germany ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Never-worked ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Self-emp-inc ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Federal-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Local-gov ^  => >50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Private ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Without-pay ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Adm-clerical ^ workclass = State-gov ^  => <=50K
+0.01384083044982699;4.0;marital-status = Married-civ-spouse ^ education = HS-grad ^ occupation = Transport-moving ^  => <=50K
+0.006920415224913495;2.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Craft-repair ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Priv-house-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Exec-managerial ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Protective-serv ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Sales ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Tech-support ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Prof-specialty ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Machine-op-inspct ^  => >50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Other-service ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Married-civ-spouse ^ education = 7th-8th ^ occupation = Transport-moving ^  => <=50K
+0.0;0.0;marital-status = Married-AF-spouse ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Masters ^ capital-gain<=5095.5 = true ^  => <=50K
+0.006920415224913495;2.0;marital-status = Never-married ^ education = Masters ^ capital-gain<=5095.5 = false ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Prof-school ^  => >50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = 12th ^  => <=50K
+0.01730103806228374;5.0;marital-status = Never-married ^ education = 11th ^  => <=50K
+0.006920415224913495;2.0;marital-status = Never-married ^ education = 10th ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Preschool ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = 1st-4th ^  => <=50K
+0.09342560553633218;27.0;marital-status = Never-married ^ education = Some-college ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = 9th ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = 5th-6th ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Doctorate ^  => <=50K
+0.010380622837370242;3.0;marital-status = Never-married ^ education = Assoc-voc ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Assoc-acdm ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Craft-repair ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Farming-fishing ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Handlers-cleaners ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Priv-house-serv ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = true ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = false ^ race = Amer-Indian-Eskimo ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = false ^ race = Asian-Pac-Islander ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = false ^ race = White ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = false ^ race = Black ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Female ^ age<=28.0 = false ^ race = Other ^  => >50K
+0.006920415224913495;2.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = true ^ sex = Male ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Exec-managerial ^ fnlwgt<=446110.5 = false ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Armed-Forces ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Protective-serv ^  => <=50K
+0.006920415224913495;2.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = true ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Never-worked ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Self-emp-inc ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Federal-gov ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Local-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Private ^  => >50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Without-pay ^  => >50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = Self-emp-not-inc ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Sales ^ age<=28.0 = false ^ workclass = State-gov ^  => >50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Tech-support ^  => <=50K
+0.02422145328719723;7.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Prof-specialty ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Machine-op-inspct ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Other-service ^  => <=50K
+0.0034602076124567475;1.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Adm-clerical ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = Bachelors ^ occupation = Transport-moving ^  => <=50K
+0.12110726643598616;35.0;marital-status = Never-married ^ education = HS-grad ^  => <=50K
+0.0;0.0;marital-status = Never-married ^ education = 7th-8th ^  => >50K

@@ -218,7 +218,7 @@ public class Main {
 					BufferedWriter writer = null;
 					try {
 						File logFile = new File("logs_acuracia" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + ".csv");
-						System.out.println(logFile.getCanonicalPath());
+						//System.out.println(logFile.getCanonicalPath());
 						writer = new BufferedWriter(new FileWriter(logFile));
 						writer.write("Total de Nós; Treinamento;Teste;Validação");
 						writer.newLine();
@@ -237,6 +237,21 @@ public class Main {
 			        }
 				}
 				System.out.println("Fim da poda...........");
+				
+				//printar as regras e suas acuracias
+				arvr.resetRules();
+				arvr.deriveRules();
+				ArrayList<Regra> regr = arvr.getRules();
+				
+				// initialize regr' scores to accuracy over validation set
+				for (Regra r: regr){
+					r.assignScore(examples_test, atrib_orig);
+//					r.setScore(acc_val);
+//					r.setScore(acc_val + Math.random());
+//					System.out.println(r.getScore()); 
+				}
+				
+				printRegras(arvr.getRules());
 				
 			}
 		}
@@ -287,25 +302,29 @@ public class Main {
 		//System.out.println("Poda:");
 		//tree_pruned.display(spaces);
 
-		/*
+		
 		// 6-2. RULE POST PRUNING
 		// set the pruning approach to rule post-pruning
-		arvr.setPruneApproach("rule post-pruning");
+		
+		//arvr.setPruneApproach("rule post-pruning");
+		 
 
-		arvr.resetRules();
-		arvr.deriveRules();
-		ArrayList<Regra> regr = arvr.getRules();
+		//arvr.resetRules();
+		//arvr.deriveRules();
+		//ArrayList<Regra> regr = arvr.getRules();
+		/*
 		// initialize regr' scores to accuracy over validation set
 		for (Regra r: regr){
-			r.assignScore(examples_val, atrib_orig);
+			r.assignScore(examples_test, atrib_orig);
 //			r.setScore(acc_val);
-			r.setScore(acc_val + Math.random());
+//			r.setScore(acc_val + Math.random());
 //			System.out.println(r.getScore()); 
 		}
 
 		// Compute the majority of class targets for the default target value
 		String target_default = majoraAdult(examples_train);
 		//arvr.displayRules();
+		
 		ArrayList<Regra> pruned_rules = arvr.prune_RulePostPruning(examples_train, examples_val, regr, atrbs, classes, name_dataset, atrib_orig, acc_val, target_default, noise);
 
 		acuracia = new Acuracia(pruned_rules, examples_test, atrib_orig, target_default);
@@ -320,22 +339,42 @@ public class Main {
 		System.out.println("Pruned Regra Set:");
 		//printRegras(pruned_rules);
 		*/
+		//printRegras(arvr.getRules());
 		return arvr;
 	}
 	
 	
 	private static void printRegras(ArrayList<Regra> regr) {
-
-		for (Regra r : regr) {
-
-			for (int i = 0; i < r.size() - 1; i = i + 2) {
-
-				System.out.print(r.getPreconditions().get(i) + " = ");
-				System.out.print(r.getPreconditions().get(i + 1) + " ^ ");
-
+		BufferedWriter writer = null;
+		try {
+			File logFile = new File("logs_regras" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + ".csv");
+			//System.out.println(logFile.getCanonicalPath());
+			writer = new BufferedWriter(new FileWriter(logFile));
+			//writer.write("Total de Nós; Treinamento;Teste;Validação");
+			//writer.newLine();
+			for (Regra r : regr) {
+				writer.write(r.getScore() + ";" + r.getNum_matched_exp_global() + ";");
+				for (int i = 0; i < r.size() - 1; i = i + 2) {
+	
+					//System.out.print(r.getPreconditions().get(i) + " = ");
+					//System.out.print(r.getPreconditions().get(i + 1) + " ^ ");
+					writer.write(r.getPreconditions().get(i) + " = ");
+					writer.write(r.getPreconditions().get(i + 1) + " ^ ");
+	
+				}
+				//System.out.printf(" => %s%n", r.getTarget());
+				writer.write(" => " + r.getTarget());
+				writer.newLine();
 			}
-			System.out.printf(" => %s%n", r.getTarget());
-		}
+		}catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // Close the writer regardless of what happens...
+                writer.close();
+            } catch (Exception e) {
+            }
+        }
 	}
 
 
